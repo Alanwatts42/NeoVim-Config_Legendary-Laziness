@@ -5,8 +5,8 @@ if not ok then
 end
 
 -- Space as leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 -- NORMAL MODE MAPPINGS
 local n_opts = {
