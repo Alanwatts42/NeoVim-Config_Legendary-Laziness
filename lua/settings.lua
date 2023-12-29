@@ -11,9 +11,9 @@ local options = {
     incsearch = true,
     showmode = false,
     expandtab = true,
-    shiftwidth = 2,
-    tabstop = 2,
-    softtabstop = 2,
+    shiftwidth = 4,
+    tabstop = 4,
+    softtabstop = 4,
     scrolloff = 5,
     autoindent = true,
     smartindent = true,
@@ -27,9 +27,9 @@ local options = {
     splitbelow = true,
     splitright = true,
     number = true, -- Make line numbers default
-    relativenumber = true,
+    relativenumber = false,
     clipboard = "unnamed,unnamedplus", -- Use system clipboard
-    cursorline = true,
+    cursorline = false,
     mouse = "a", -- Enable mouse mode
     cmdheight = 1,
     undodir = "/tmp/.nvimdid",
@@ -71,4 +71,4 @@ if _notify then
 end
 
 -- UI theme
-require("theme").set_active_theme("githubnvimtheme")
+require("theme").set_active_theme("nightfox")
