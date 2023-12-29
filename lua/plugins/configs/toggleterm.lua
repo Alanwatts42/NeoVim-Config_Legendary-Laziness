@@ -16,7 +16,7 @@ return {
 			open_mapping = [[<leader>vt]],
 			insert_mappings = false,
 			--direction = 'vertical' | 'horizontal' | 'tab' | 'float',
-			direction = "vertical",
+			direction = "horizontal",
 			close_on_exit = true, -- close the terminal window when the process exits
 			shell = "/usr/bin/zsh", -- change the default shell
 		})

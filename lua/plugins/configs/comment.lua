@@ -3,9 +3,15 @@ return {
 	config = function()
 		require("Comment").setup({
 			toggler = {
-				---Line-comment toggle keymap
-				line = "<c-_>", -- It traslates to Ctrl /
+				-- -Line-comment toggle keymap
+			    line = "ggc",
+                block = "gbc",
 			},
+            opleader = {
+                line = "ggc",
+                block = "gbc",
+            },
+
 		})
 	end,
 }

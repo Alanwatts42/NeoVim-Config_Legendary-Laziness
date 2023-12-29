@@ -49,6 +49,13 @@ local function loadNoClownFiesta()
 end
 
 local themes = {
+    githubnvimtheme = {
+        'projekt0n/github-nvim-theme',
+        config = function()
+            require('github-theme').setup{}
+            vim.cmd 'colorscheme github_dark' 
+        end 
+    },
     onenord = {
         "rmehri01/onenord.nvim",
         config = function()
@@ -92,7 +99,7 @@ local themes = {
         config = function()
             local theme = require('onedark')
             theme.setup {
-                style = 'deep',
+                style = 'darker',
                 transparent = false, -- Show/hide background
                 code_style = {
                     comments = 'italic',
@@ -106,7 +113,6 @@ local themes = {
                 },
             }
             theme.load()
-            -- loadNoClownFiesta()
         end
     },
     palenightfall = {

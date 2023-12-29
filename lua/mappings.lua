@@ -4,7 +4,7 @@ if not ok then
 	return
 end
 
--- Space as leader key
+-- Comma <,> as leader key
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
@@ -26,11 +26,11 @@ wk.register({
 	["c"] = { '"_c', "Do not copy when changing" },
 	["C"] = { '"_C', "Do not copy when changing" },
 	["cc"] = { '"_cc', "Do not copy when changing" },
-
+    
 	["<a-p>"] = { '"_diwP', "Replace word with paste" },
 	["<a-s-p>"] = { '"_ddP', "Replace line with paste" },
 
-	["<a-j>"] = { ":m .+1<cr>==", "Move line down" },
+    ["<a-j>"] = { ":m .+1<cr>==", "Move line down" },
 	["<a-k>"] = { ":m .-2<cr>==", "Move line up" },
 
 	["<a-d>"] = { '"_diw', "Delete word" },

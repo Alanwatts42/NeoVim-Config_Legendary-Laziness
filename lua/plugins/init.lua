@@ -83,13 +83,16 @@ local plugins = {
 	-- require("plugins.configs.coq"),
 	require("plugins.configs.cmp"),
 	require("plugins.configs.lspsignature"),
-	require("plugins.configs.copilot"),
+	-- require("plugins.configs.copilot"),
 	-- Tmux
 	require("plugins.configs.tmux"),
 	---- Git
 	require("plugins.configs.diffview"),
 	require("plugins.configs.gitsigns"), -- Add git related info in the signs columns and popups
+    
+    -- Commenting
+    "b3nj5m1n/kommentary",
+    "gennaro-tedesco/nvim-commaround",
 }
-
 -- vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});
 lazy.setup(plugins)

@@ -1,5 +1,6 @@
-require "settings"
-require "plugins"
-require "mappings"
-require "lsp"
-require "autocmds"
+require("settings")
+require("plugins")
+require("mappings")
+require("lsp")
+require("autocmds")
+
