@@ -91,8 +91,9 @@ local plugins = {
 	require("plugins.configs.gitsigns"), -- Add git related info in the signs columns and popups
     
     -- Commenting
-    "b3nj5m1n/kommentary",
+    -- "b3nj5m1n/kommentary",
     "gennaro-tedesco/nvim-commaround",
+    "JoosepAlviste/nvim-ts-context-commentstring",
 }
 -- vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});
 lazy.setup(plugins)
