@@ -1,17 +1,17 @@
 local M = {}
 
 M.colors = {
-    bg = "#2e3440",
+    bg = "#090909",
     fg = "#ECEFF4",
-    red = "#bf616a",
+    red = "#fc2336",
     orange = "#d08770",
-    yellow = "#ebcb8b",
-    blue = "#5e81ac",
-    green = "#a3be8c",
-    cyan = "#88c0d0",
-    magenta = "#b48ead",
-    purple = "#534671",
-    pink = "#FFA19F",
+    yellow = "#ffbc31",
+    blue = "#2178ff",
+    green = "#5afb3e",
+    cyan = "#30ccf9",
+    magenta = "#6f2fd8",
+    purple = "#2712dc",
+    pink = "#b312dc",
     grey1 = "#f8fafc",
     grey2 = "#f0f1f4",
     grey3 = "#eaecf0",
@@ -33,22 +33,38 @@ M.colors = {
     grey19 = "#020203"
 }
 
-local function loadNoClownFiesta()
-    vim.cmd [[colorscheme no-clown-fiesta]]
-    require("no-clown-fiesta").setup({
-        transparent = false, -- Enable this to disable the bg color
-        styles = {
-            -- You can set any of the style values specified for `:h nvim_set_hl`
-            comments = {},
-            keywords = {},
-            functions = {},
-            variables = {},
-            type = { bold = true },
-        },
-    })
-end
-
 local themes = {
+
+    gruvbox = {
+         "ellisonleao/gruvbox.nvim", 
+        priority = 1000 ,
+        config = function()
+        require("gruvbox").setup({
+                terminal_colors = true, -- add neovim terminal colors
+                undercurl = true,
+                underline = true,
+                bold = true,
+                italic = {
+                    strings = false,
+                    emphasis = false,
+                    comments = false,
+                    operators = false,
+                    folds = false,
+                },
+                strikethrough = false,
+                invert_selection = false,
+                invert_signs = false,
+                invert_tabline = false,
+                invert_intend_guides = false,
+                inverse = false, -- invert background for search, diffs, statuslines and errors
+                contrast = "hard", -- can be "hard", "soft" or empty string
+                overrides = {},
+                dim_inactive = false,
+                transparent_mode = true,
+            })
+            vim.cmd("colorscheme gruvbox")
+        end
+    },
     
     nightfox = {
         "EdenEast/nightfox.nvim",

@@ -79,5 +79,5 @@ if _lspconfig then
 	lspconfig.lemminx.setup({})
 
 	-- VUE
-	lspconfig.vuels.setup({})
+-- 	lspconfig.vuels.setup({})
 end
