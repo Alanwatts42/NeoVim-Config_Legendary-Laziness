@@ -67,7 +67,14 @@ local plugins = {
 	require("plugins.configs.lens"),
 	require("plugins.configs.conform"), -- Formatting tool
     require("plugins.configs.glance"),
-
+    {
+        "kiyoon/jupynium.nvim",
+        build = "pip3 install --user .",
+        -- build = "conda run --no-capture-output -n jupynium pip install .",
+        -- enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
+    },
+    "rcarriga/nvim-notify",   -- optional
+    "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
 	---- LSP/DAP
 	require("plugins.configs.mason"),
 	"neovim/nvim-lspconfig",
