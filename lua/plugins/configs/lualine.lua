@@ -12,7 +12,7 @@ return {
             },
             sections = {
                 lualine_c = {
-                    "aerial",
+                    "courier",
                 },
             },
         })
