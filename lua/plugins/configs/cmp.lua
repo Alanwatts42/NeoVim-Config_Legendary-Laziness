@@ -30,7 +30,24 @@ return {
 		-- Lazy load all vscode like snippets
 		require("luasnip/loaders/from_vscode").lazy_load()
 
+        local cmp = require "cmp"
+        local compare = cmp.config.compare
+
 		cmp.setup({
+            sources = {
+                { name = "jupynium", priority = 1000 },  -- consider higher priority than LSP
+                { name = "nvim_lsp", priority = 100 },
+                -- ...
+            },
+            sorting = {
+                priority_weight = 1.0,
+                comparators = {
+                compare.score,            -- Jupyter kernel completion shows prior to LSP
+                compare.recently_used,
+                compare.locality,
+                -- ...
+                },
+            },
 			preselect = cmp.PreselectMode.Item,
 			-- completion = { autocomplete = false }, -- Make completion only on demand
 			enabled = function()
