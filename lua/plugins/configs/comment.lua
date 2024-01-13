@@ -4,11 +4,11 @@ return {
 		require("Comment").setup({
 			toggler = {
 				-- -Line-comment toggle keymap
-			    line = "ggc",
+			    line = "gcc",
                 block = "gbc",
 			},
             opleader = {
-                line = "ggc",
+                line = "gcc",
                 block = "gbc",
             },
 
