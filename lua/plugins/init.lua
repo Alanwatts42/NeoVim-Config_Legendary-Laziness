@@ -56,7 +56,7 @@ local plugins = {
 	"chrisgrieser/nvim-spider",
 	require("plugins.configs.textobjs"),
 	require("plugins.configs.comment"),
-	require("plugins.configs.flash"),
+	-- require("plugins.configs.flash"),
 	require("plugins.configs.todo"),
 	require("plugins.configs.harpoon"),
 	require("plugins.configs.bigfile"),

@@ -19,14 +19,14 @@ local n_opts = {
 
 wk.register({
 	["<c-s>"] = { "ggVG", "[SELECT] Select all" },
--- Edit
+	-- Edit
 	-- ["d"] = { '"_d', "Do not copy when deleting" },
-	["D"] = { '"_D', "Do not copy when deleting" },
+	-- ["D"] = { '"_D', "Do not copy when deleting" },
 	-- ["dd"] = { '"_dd', "Do not copy when deleting" },
 	["c"] = { '"_c', "Do not copy when changing" },
 	["C"] = { '"_C', "Do not copy when changing" },
 	["cc"] = { '"_cc', "Do not copy when changing" },
-   
+    
 	["<a-p>"] = { '"_diwP', "Replace word with paste" },
 	["<a-s-p>"] = { '"_ddP', "Replace line with paste" },
 
@@ -222,7 +222,7 @@ local i_opts = {
 }
 
 wk.register({
-	["jk"] = { "<Esc>", "Normal mode switch" },
+	-- ["jk"] = { "<Esc>", "Normal mode switch" },
 	["<a-s>"] = { "<Del>", "Handy DEL on insert mode" },
 	["<a-d>"] = { '<C-o>"_diw', "Delete word" },
 	["<a-c>"] = { '<C-o>"_ciw', "Change word" },
@@ -242,7 +242,7 @@ local v_opts = {
 	noremap = true,
 }
 wk.register({
-	["jk"] = { "<Esc>", "Normal mode switch" },
+	-- ["jk"] = { "<Esc>", "Normal mode switch" },
 	["<c-s>"] = { "ggOG", "[SELECT] Select all" },
 	["v"] = { "^o$", "[SELECT] Select trimmed line" },
 	-- Edit

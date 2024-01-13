@@ -34,7 +34,7 @@ if _lspconfig then
 
 	-- Bash
 	lspconfig.bashls.setup({
-		autostart = false,
+		autostart = true,
 	})
 
 	-- Javascript/Typescript
