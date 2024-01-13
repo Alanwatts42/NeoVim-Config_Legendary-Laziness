@@ -33,7 +33,7 @@ local plugins = {
 	require("plugins.configs.scrollbar"),
 	require("plugins.configs.trouble"),
 	require("plugins.configs.aerial"),
-	-- require("plugins.configs.edgy"), -- Layout configurations
+	require("plugins.configs.edgy"), -- Layout configurations
 	require("plugins.configs.hydra"),
 	"rcarriga/nvim-notify", -- Popup notifications
 	"mbbill/undotree",
@@ -46,17 +46,16 @@ local plugins = {
 	require("plugins.configs.autopairs"),
 	require("plugins.configs.dial"), -- Extended increment/decrement functions
 	require("plugins.configs.surround"), -- Autochange open/close chars
-	-- require("plugins.configs.colorizer"), -- Colorize written color codes (#02F1AA, rgb(0,10,20)...)
+	require("plugins.configs.colorizer"), -- Colorize written color codes (#02F1AA, rgb(0,10,20)...)
 	require("plugins.configs.neoclip"), -- Clipboard manager
 	require("plugins.configs.toggleterm"), --- Improved terminal toggle
-	-- require("plugins.configs.illuminate"), --- Automatically highlighting other uses of the word under the cursor
+	require("plugins.configs.illuminate"), --- Automatically highlighting other uses of the word under the cursor
 	require("plugins.configs.project"), -- Project management
 	"sitiom/nvim-numbertoggle", -- Automatic switch to absolute line numbers when you are not in normal or visual mode, or focus is in other split
 	require("plugins.configs.zen"),
 	"chrisgrieser/nvim-spider",
 	require("plugins.configs.textobjs"),
 	require("plugins.configs.comment"),
-	-- require("plugins.configs.flash"),
 	require("plugins.configs.todo"),
 	require("plugins.configs.harpoon"),
 	require("plugins.configs.bigfile"),
@@ -83,7 +82,6 @@ local plugins = {
         -- Depending on your nvim distro or config you may need to make the loading not lazy
         -- lazy=false,
     },   
-
     "rcarriga/nvim-notify",   -- optional
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
 	---- LSP/DAP
@@ -112,6 +110,7 @@ local plugins = {
     -- "b3nj5m1n/kommentary",
     "gennaro-tedesco/nvim-commaround",
     "JoosepAlviste/nvim-ts-context-commentstring",
-}
--- vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});
-lazy.setup(plugins)
+    }
+vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});
+
+    lazy.setup(plugins)
