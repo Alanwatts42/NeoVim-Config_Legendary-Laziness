@@ -87,7 +87,9 @@ local plugins = {
     },   
     "rcarriga/nvim-notify",   -- optional
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
-
+    {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},  -- adds the ability to preview markdown files as they appear with all formatting/links enabled as they would show up in a browser
+      
+   
     ---- LSP/DAP
 	require("plugins.configs.mason"),
 	"neovim/nvim-lspconfig",
