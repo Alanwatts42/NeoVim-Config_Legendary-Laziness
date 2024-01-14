@@ -1,3 +1,15 @@
+local ok, wk = pcall{require, "which-key"}
+
+if not ok then
+    return
+end,
+
+wk.register({
+    ["<leader>mp"] = { ":Glow" }  -- Preview markdown file in current buffer 
+    ["<leader>mc"] = { ":Glow!"}  -- Close markdown preview window
+    -- :Glow [path-to-md-file] will open up a md file at specified path
+})
+
 {
     glow_path = "", -- will be filled automatically with your glow bin in $PATH, if any
     install_path = "~/.local/bin", -- default path for installing glow binary
@@ -9,4 +21,3 @@
     width_ratio = 0.7, -- maximum width of the Glow window compared to the nvim window size (overrides `width`)
     height_ratio = 0.7,
 }
-
