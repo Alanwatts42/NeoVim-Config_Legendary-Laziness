@@ -72,22 +72,27 @@ local plugins = {
 	require("plugins.configs.conform"), -- Formatting tool
     require("plugins.configs.glance"),
     require("plugins.configs.code-runner"),
+	require("plugins.configs.notebook-navigator"),
+    
     {
-        "kiyoon/jupynium.nvim",
+    "kiyoon/jupynium.nvim",
         build = "pip3 install --user .",
         build = "conda run --no-capture-output -n jupynium pip install .",
         enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
     },
+    
     "rcarriga/nvim-notify",   -- optional
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
+   
     {
     "GCBallesteros/jupytext.nvim",
         config = true,
-        -- Depending on your nvim distro or config you may need to make the loading not lazy
-        -- lazy=false,
+        lazy=false,
     },   
+    
     "rcarriga/nvim-notify",   -- optional
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
+    
     {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},  -- adds the ability to preview markdown files as they appear with all formatting/links enabled as they would show up in a browser
       
    
@@ -121,7 +126,7 @@ local plugins = {
     "b3nj5m1n/kommentary",
     "gennaro-tedesco/nvim-commaround",
     "JoosepAlviste/nvim-ts-context-commentstring",
-    },
+},
 
 vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});  
 --[[ The purpose of the above function is to echo or display the name of the active theme, the name of which is set by a function in the 'settings.lua' file that sets the active theme. Changing "them_name" parameter changes which theme is currently active. However, in order to make this work, the names of each theme needed to be declared as variables, and this is done from within the 'themes.lua' file. The themes.lua file is also where the preferences for each theme are configured. Also, in order to add any new themes to make theme available to be made the active theme, the 'themes.lua' file is where the configuration data for any new themes must be added before they can be used (see 'themes.lua' for examples of how to add any new themes to this configuration). ]]
