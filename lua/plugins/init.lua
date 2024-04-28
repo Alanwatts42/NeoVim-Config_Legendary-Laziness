@@ -117,8 +117,8 @@ local plugins = {
 	require("plugins.configs.diffview"),
 	require("plugins.configs.gitsigns"),  -- Add git related info in the signs columns and popups
     
-    -- Commenting
-    -- "b3nj5m1n/kommentary", -- deprecated
+    -- Comment Plugins
+    "b3nj5m1n/kommentary",
     "gennaro-tedesco/nvim-commaround",
     "JoosepAlviste/nvim-ts-context-commentstring",
     },
