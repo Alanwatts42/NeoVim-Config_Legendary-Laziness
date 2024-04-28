@@ -229,8 +229,8 @@ wk.register({
 	["<a-w>"] = { "<C-o>w", "Move to next word" },
 	["<a-b>"] = { "<C-o>b", "Move to previous word" },
 	["<a-e>"] = { "<ESC>ea", "Move to end of word" },
-	["<a-j>"] = { "<ESC>:m .+1<cr>==gi", "[MOVE] Move block down" },
-	["<a-k>"] = { "<ESC>:m .-2<cr>==gi", "[MOVE] Move block up" },
+	["<a-l>"] = { "<ESC>:m .+1<cr>==gi", "[MOVE] Move block down" },
+	["<a-K>"] = { "<ESC>:m .-2<cr>==gi", "[MOVE] Move block up" },
 }, i_opts)
 
 -- VISUAL MODE MAPPINGS
@@ -249,9 +249,9 @@ wk.register({
 	["c"] = { '"_c', "Do not copy when changing" },
 	["C"] = { '"_C', "Do not copy when changing" },
 	["cc"] = { '"_cc', "Do not copy when changing" },
-	["p"] = { '"_dP', "Paste without replacing what is was in clipboard" },
-	["<a-j>"] = { ":m '>+1<cr>gv=gv", "[MOVE] Move block down" },
-	["<a-k>"] = { ":m '<-2<cr>gv=gv", "[MOVE] Move block up" },
+	["p"] = { '"_dP', "Paste without replacing what  was in clipboard" },
+	["<a-n>"] = { ":m '>+1<cr>gv=gv", "[MOVE] Move block down" },
+	["<a-N>"] = { ":m '<-2<cr>gv=gv", "[MOVE] Move block up" },
 	-- Motions
 	["H"] = { "^", "[MOTION] Move to first character of line" },
 	["L"] = { "$", "[MOTION] Move to last character of line" },

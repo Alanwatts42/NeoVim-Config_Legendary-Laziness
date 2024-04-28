@@ -1,7 +1,9 @@
-return {
-	"numToStr/Comment.nvim",
-	config = function()
-		require("Comment").setup()
-	end,
+local M = {
+  'numToStr/Comment.nvim',
+  opts = {
+    ignore = '^$',
+  },
+  lazy = false,
 }
 
+return M
