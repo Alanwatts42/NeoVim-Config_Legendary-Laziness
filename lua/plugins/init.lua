@@ -42,6 +42,7 @@ local plugins = {
 	require("plugins.configs.neotree"),
 	require("plugins.configs.lualine"),
 	require("plugins.configs.treesitter"),
+    "nvim-neotest/nvim-nio",
 
     ---- Utilities
 	require("plugins.configs.telescope"),
@@ -94,9 +95,10 @@ local plugins = {
 	require("plugins.configs.mason"),
 	"neovim/nvim-lspconfig",
     require("lsp.configs.dap"),
-	require("lsp.configs.java"),
-	require("lsp.configs.rust"),
+	require("lsp.configs.java"), require("lsp.configs.rust"),
 	require("lsp.configs.python"),
+    -- Dependents
+
 
     ---- Snippets
 	"L3MON4D3/LuaSnip",
