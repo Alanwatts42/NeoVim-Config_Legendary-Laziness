@@ -71,4 +71,4 @@ if _notify then
 end
 
 -- UI theme
-require("theme").set_active_theme("nightfox")
+require("theme").set_active_theme("")

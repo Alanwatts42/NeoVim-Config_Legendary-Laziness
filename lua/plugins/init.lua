@@ -73,7 +73,9 @@ local plugins = {
     require("plugins.configs.glance"),
     require("plugins.configs.code-runner"),
 	require("plugins.configs.notebook-navigator"),
-    
+
+
+
     {
     "kiyoon/jupynium.nvim",
         build = "pip3 install --user .",
@@ -129,7 +131,5 @@ local plugins = {
 },
 
 vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});  
---[[ The purpose of the above function is to echo or display the name of the active theme, the name of which is set by a function in the 'settings.lua' file that sets the active theme. Changing "them_name" parameter changes which theme is currently active. However, in order to make this work, the names of each theme needed to be declared as variables, and this is done from within the 'themes.lua' file. The themes.lua file is also where the preferences for each theme are configured. Also, in order to add any new themes to make theme available to be made the active theme, the 'themes.lua' file is where the configuration data for any new themes must be added before they can be used (see 'themes.lua' for examples of how to add any new themes to this configuration). ]]
--- TODO: add the info in the above comment to README, and then shorten or delete the comment.
  
     lazy.setup(plugins)

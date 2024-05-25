@@ -87,8 +87,7 @@ local themes = {
                     protan = 0,          -- Severity [0,1] for protan (red)
                     deutan = 0,          -- Severity [0,1] for deutan (green)
                     tritan = 0,          -- Severity [0,1] for tritan (blue)
-                },
-                },
+                }, },
                 styles = {               -- Style to be applied to different syntax groups
                 comments = "NONE",     -- Value is any valid attr-list value `:help attr-list`
                 conditionals = "NONE",
@@ -269,6 +268,21 @@ local themes = {
         "marko-cerovac/material.nvim",
         config = function()
             require "plugins.configs.materialui"
+        end
+    },
+    beardedtheme = {
+        "xStormyy/bearded-theme.nvim",
+        config = function()
+            require('plugins.config').setup{}
+            vim.cmd 'colorscheme bearded-theme'
+        end
+    },
+
+    monochrome = {
+        'kdheepak/monochrome.nvim',
+        config = function()
+            require('monochrome').setup{}
+            vim.cmd 'colorscheme monochrome'
         end
     },
 }
