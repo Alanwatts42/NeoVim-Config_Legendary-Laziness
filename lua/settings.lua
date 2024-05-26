@@ -70,5 +70,5 @@ if _notify then
     vim.notify = notify
 end
 
+require("theme").set_active_theme("citruszest")
 -- UI theme
-require("theme").set_active_theme("")

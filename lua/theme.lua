@@ -1,36 +1,36 @@
 local M = {}
 
 M.colors = {
-    bg = "#090909",
-    fg = "#ECEFF4",
-    red = "#fc2336",
-    orange = "#d08770",
-    yellow = "#ffbc31",
-    blue = "#2178ff",
-    green = "#5afb3e",
-    cyan = "#30ccf9",
+    bg = "#151515",
+    fg = "#e4e4e4",
+    red = "#ff0000",
+    yellow = "#49b6ff",
+    orange = "#ff5e00",
+    blue = "#006ee4",
+    green = "#c8ff00",
+    cyan = "#00a7e4",
     magenta = "#6f2fd8",
     purple = "#2712dc",
     pink = "#b312dc",
-    grey1 = "#f8fafc",
-    grey2 = "#f0f1f4",
-    grey3 = "#eaecf0",
-    grey4 = "#d9dce3",
-    grey5 = "#c4c9d4",
-    grey6 = "#b5bcc9",
-    grey7 = "#929cb0",
-    grey8 = "#8e99ae",
-    grey9 = "#74819a",
-    grey10 = "#616d85",
-    grey11 = "#464f62",
-    grey12 = "#3a4150",
+    grey1 = "#e4e4e4",
+    grey2 = "#c7c7c7",
+    grey3 = "#b6b6b6",
+    grey4 = "#a5a5a5",
+    grey5 = "#9b9b9b",
+    grey6 = "#949494",
+    grey7 = "#838383",
+    grey8 = "#727272",
+    grey9 = "#696969",
+    grey10 = "#626262",
+    grey11 = "#5c5c5c",
+    grey12 = "#565656",
     grey13 = "#333a47",
-    grey14 = "#242932",
+    grey14 = "#404040",
     grey15 = "#1e222a",
-    grey16 = "#1c1f26",
+    grey16 = "#333333",
     grey17 = "#0f1115",
-    grey18 = "#0d0e11",
-    grey19 = "#020203"
+    grey18 = "#2b2b2b",
+    grey19 = "#272727"
 }
 
 local themes = {
@@ -285,6 +285,18 @@ local themes = {
             vim.cmd 'colorscheme monochrome'
         end
     },
+
+
+    citruszest = {
+        "zootedb0t/citruszest.nvim",
+        config = function()
+            require('citruszest').setup{}
+            -- lazy = false,
+            -- priority = 1000,
+            vim.cmd 'colorscheme citruszest'
+        end
+    },
+
 }
 
 M.set_active_theme = function(theme_name)
