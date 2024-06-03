@@ -68,12 +68,14 @@ local plugins = {
 	require("plugins.configs.conform"), -- Formatting tool
     require("plugins.configs.glance"),
     require("plugins.configs.code-runner"),
+    
     {
         "kiyoon/jupynium.nvim",
         build = "pip3 install --user .",
         build = "conda run --no-capture-output -n jupynium pip install .",
         enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
     },
+   
     "rcarriga/nvim-notify",   -- optional
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
 
@@ -83,6 +85,11 @@ local plugins = {
         -- Depending on your nvim distro or config you may need to make the loading not lazy
         -- lazy=false,
     },   
+
+    { 
+        "nvim-neotest/nvim-nio" 
+    },
+
 
     "rcarriga/nvim-notify",   -- optional
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect

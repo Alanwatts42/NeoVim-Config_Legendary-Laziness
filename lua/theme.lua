@@ -170,6 +170,7 @@ local themes = {
             }
         end
     },
+    
     tokyonight = {
         "folke/tokyonight.nvim",
         config = function()
@@ -185,6 +186,7 @@ local themes = {
             theme.load()
         end
     },
+    
     onedark = {
         "navarasu/onedark.nvim",
         config = function()
@@ -206,18 +208,21 @@ local themes = {
             theme.load()
         end
     },
+    
     palenightfall = {
         "JoosepAlviste/palenightfall.nvim",
         config = function()
             require('palenightfall').setup {}
         end
     },
+    
     nordic = {
         "AlexvZyl/nordic.nvim",
         config = function()
             require('nordic').setup {}
         end
     },
+    
     onedarkpro = {
         "olimorris/onedarkpro.nvim",
         config = function()
@@ -225,6 +230,7 @@ local themes = {
             require('onedarkpro').load()
         end
     },
+    
     tokyodark = {
         "tiagovla/tokyodark.nvim",
         config = function()
@@ -235,12 +241,14 @@ local themes = {
             vim.cmd 'colorscheme tokyodark'
         end
     },
+    
     moonfly = {
         "bluz71/vim-moonfly-colors",
         config = function()
             vim.cmd [[colorscheme moonfly]]
         end
     },
+    
     dracula = {
         "Mofiqul/dracula.nvim",
         config = function()
@@ -249,6 +257,7 @@ local themes = {
             theme.load()
         end
     },
+    
     draculanight = {
         "magidc/draculanight",
         config = function()
@@ -257,6 +266,7 @@ local themes = {
             theme.load()
         end
     },
+    
     catppuccin = {
         "catppuccin/nvim",
         name = "catppuccin",
@@ -265,6 +275,7 @@ local themes = {
             vim.cmd [[colorscheme catppuccin]]
         end
     },
+    
     material = {
         "marko-cerovac/material.nvim",
         config = function()
