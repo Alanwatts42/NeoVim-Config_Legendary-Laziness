@@ -1,4 +1,4 @@
-# Nvim COnfiguration
+# Nvim Configuration
 
 <a href="https://dotfyle.com/Alanwatts42/nvim-config"><img src="https://dotfyle.com/Alanwatts42/nvim-config/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/Alanwatts42/nvim-config"><img src="https://dotfyle.com/Alanwatts42/nvim-config/badges/leaderkey?style=flat" /></a>
