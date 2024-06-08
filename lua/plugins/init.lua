@@ -68,7 +68,7 @@ local plugins = {
 	require("plugins.configs.conform"), -- Formatting tool
     require("plugins.configs.glance"),
     require("plugins.configs.code-runner"),
-    
+    "AckslD/nvim-trevJ.lua", -- Argwrap-type addon
     {
         "kiyoon/jupynium.nvim",
         build = "pip3 install --user .",
