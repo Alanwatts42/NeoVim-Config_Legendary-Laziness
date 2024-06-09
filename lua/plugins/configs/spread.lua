@@ -1,6 +1,8 @@
 return {
-	"aarondiel/spread.nvim",
-	depdndencies = {
+	
+    "aarondiel/spread.nvim",
+	
+    depdndencies = {
         "nvim-treesitter/nvim-treesitter",
     },
 
@@ -9,9 +11,8 @@ return {
 		local default_options = {
 			silent = true,
 			noremap = true
-		}
-
-		vim.keymap.add("n", "<leader>ss", spread.out, default_options)
-		vim.keymap.add("n", "<leader>ssc", spread.combine, default_options)
+		},
+		vim.api.nvim_set_keymap("n", "<leader>ss", "<plug>spread.out, default_options", {})
+		vim.api.nvim_set_keymap("n", "<leader>ssc", "<plug>spread.combine, default_options", {})
 	end
 }

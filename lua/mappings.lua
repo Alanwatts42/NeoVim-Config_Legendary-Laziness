@@ -66,11 +66,11 @@ wk.register({
 
 	-- Window navigation
 	---- Without bufferline
-	-- ["<a-right>"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
-	-- ["<a-left>"] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
+	["<a-h>"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
+	["<a-l>"] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
 	-- With bufferline
-	["<a-left>"] = { "<cmd>BufferLineCyclePrev<cr>", "[BUFFER] Go previous buffer" },
-	["<a-right>"] = { "<cmd>BufferLineCycleNext<cr>", "[BUFFER] Go next buffer" },
+	["<a-h>"] = { "<cmd>BufferLineCyclePrev<cr>", "[BUFFER] Go previous buffer" },
+	["<a-l>"] = { "<cmd>BufferLineCycleNext<cr>", "[BUFFER] Go next buffer" },
 	["<a-b>"] = { "<cmd>e #<cr>", "[BUFFER] Switch to other buffer" },
 	["<a-t>"] = { "<cmd>ene<cr>", "[BUFFER] Open a new empty buffer" },
 	["Z"] = { "<cmd>wall<cr>", "[BUFFER] Save all" },
@@ -243,7 +243,7 @@ local v_opts = {
 }
 wk.register({
 	-- ["jk"] = { "<Esc>", "Normal mode switch" },
-	["<c-s>"] = { "ggOG", "[SELECT] Select all" },
+	["<c-a>"] = { "ggOG", "[SELECT] Select all" },
 	["v"] = { "^o$", "[SELECT] Select trimmed line" },
 	-- Edit
 	["c"] = { '"_c', "Do not copy when changing" },
@@ -271,13 +271,13 @@ wk.register({
 local s_opts = {
 	mode = "s",
 	prefix = "",
+    noremap = true,
 	silent = true,
-	noremap = true,
 	nowait = true,
 }
 wk.register({
-	["<a-Bs>"] = { "<C-o>diw", "Delete word" },
-	["<a-c>"] = { "<C-o>ciw", "Change word" },
+	-- ["<a-Bs>"] = { "<C-o>diw", "Delete word" },
+	-- ["<a-c>"] = { "<C-o>ciw", "Change word" },
 }, s_opts)
 
 -- Execution mode mappings
