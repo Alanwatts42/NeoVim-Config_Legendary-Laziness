@@ -1,7 +1,7 @@
 local M = {}
 
 M.colors = {
-    bg = "#090909",
+    bg = "#151515",
     fg = "#ECEFF4",
     red = "#fc2336",
     orange = "#d08770",
@@ -141,9 +141,7 @@ local themes = {
     config = function()
         require('github-theme').setup({
             theme_style = "dark", -- or "light"
-            -- Other configuration options
         })
-        -- Do not use the vim.cmd line for colorscheme here
     end
     },
  
@@ -215,7 +213,23 @@ local themes = {
             require('palenightfall').setup {}
         end
     },
-    
+
+    poimandres = {
+        'olivercederborg/poimandres.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('poimandres').setup {
+                disable_background = true,
+                bold_vert_spit = true,
+            }
+        end,
+
+        init = function()
+            vim.cmd 'colorscheme poimandres'
+        end
+    },
+
     cyberdream = {
         "scottmckendry/cyberdream.nvim",
         config = function()
