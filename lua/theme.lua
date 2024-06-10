@@ -45,7 +45,7 @@ local themes = {
                 underline = true,
                 bold = true,
                 italic = {
-                    strings = false,
+                strings = false,
                     emphasis = false,
                     comments = false,
                     operators = false,
@@ -212,6 +212,19 @@ local themes = {
         config = function()
             require('palenightfall').setup {}
         end
+    },
+
+    abstractcs = {
+        'Abstract-IDE/Abstract-cs',
+        lazy = false,
+        priority = 1000,
+        -- config = function()
+        --     require('abstractcs').setup {}
+        -- end,
+        
+        -- init function()
+        --     vim.cmd 'colorscheme absctract-cs'
+        -- end
     },
 
     poimandres = {
