@@ -18,7 +18,7 @@ local n_opts = {
 }
 
 wk.register({
-	["<c-s>"] = { "ggVG", "[SELECT] Select all" },
+	["<c-a>"] = { "ggVG", "[SELECT] Select all" },
 	-- Edit
 	-- ["d"] = { '"_d', "Do not copy when deleting" },
 	-- ["D"] = { '"_D', "Do not copy when deleting" },
@@ -66,8 +66,8 @@ wk.register({
 
 	-- Window navigation
 	---- Without bufferline
-	["<a-h>"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
-	["<a-l>"] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
+	["<a-left>"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
+	["<a-right>"] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
 	-- With bufferline
 	["<a-h>"] = { "<cmd>BufferLineCyclePrev<cr>", "[BUFFER] Go previous buffer" },
 	["<a-l>"] = { "<cmd>BufferLineCycleNext<cr>", "[BUFFER] Go next buffer" },
