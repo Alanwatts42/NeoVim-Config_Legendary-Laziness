@@ -65,7 +65,27 @@ local themes = {
             vim.cmd("colorscheme gruvbox")
         end
     },
-    
+
+    muon = {
+        "gregsexton/Muon",
+        priority = 1000 ,
+        config = function()
+        require('muon').setup({})
+            vim.cmd("colorscheme muon")
+        end
+    },
+
+    atlanticdark = {
+        "L-Colombo/atlantic-dark.nvim",
+        config = function()
+            require('atlantic-dark').setup{
+                disable_background = true,
+            }
+            vim.cmd("colorscheme atlantic-dark")
+        end
+    },
+
+
     nightfox = {
         "EdenEast/nightfox.nvim",
         config = function()
@@ -137,12 +157,12 @@ local themes = {
     }, 
 
    githubnvimtheme = {
-    'projekt0n/github-nvim-theme',
-    config = function()
-        require('github-theme').setup({
-            theme_style = "dark", -- or "light"
-        })
-    end
+        'projekt0n/github-nvim-theme',
+        config = function()
+            require('github-theme').setup({
+                theme_style = "dark", -- or "light"
+            })
+        end
     },
  
     onenord = {
