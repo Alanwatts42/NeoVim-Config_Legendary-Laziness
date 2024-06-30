@@ -43,8 +43,9 @@ local plugins = {
 	require("plugins.configs.treesitter"),
 	
     ---- Utilities
-    -- require("plguins.configs.luarocks"),  -- Lua package manager
-	require("plugins.configs.telescope"),
+
+
+    require("plugins.configs.telescope"),
 	"terryma/vim-expand-region", -- Incremental selection expansion
 	require("plugins.configs.autopairs"),
 	require("plugins.configs.dial"), -- Extended increment/decrement functions
@@ -78,7 +79,15 @@ local plugins = {
         build = "conda run --no-capture-output -n jupynium pip install .",
         enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
     },
-   
+    
+    
+    {
+        "vhyrro/luarocks.nvim",
+        priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+        config = true,
+    },
+
+
     "rcarriga/nvim-notify",   -- optional
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
 
