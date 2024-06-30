@@ -20,7 +20,8 @@ end
 local theme = require("theme")
 
 local plugins = {
-	---- UI
+	
+    ---- UI
 	theme.get_active_theme(),
 	"mhinz/vim-startify", -- Start page
 	"aktersnurra/no-clown-fiesta.nvim",
@@ -40,7 +41,9 @@ local plugins = {
 	require("plugins.configs.neotree"),
 	require("plugins.configs.lualine"),
 	require("plugins.configs.treesitter"),
-	---- Utilities
+	
+    ---- Utilities
+    require("plguins.configs.luarocks"),  -- Lua package manager
 	require("plugins.configs.telescope"),
 	"terryma/vim-expand-region", -- Incremental selection expansion
 	require("plugins.configs.autopairs"),
@@ -93,7 +96,8 @@ local plugins = {
 
     "rcarriga/nvim-notify",   -- optional
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
-	---- LSP/DAP
+	
+    ---- LSP/DAP
 	require("plugins.configs.mason"),
 	"neovim/nvim-lspconfig",
     require("lsp.configs.dap"),
@@ -107,11 +111,12 @@ local plugins = {
         dependencies = { "rafamadriz/friendly-snippets" },
     },
 	"rafamadriz/friendly-snippets",
-	---- Completion
+	
+    ---- Completion
 	-- require("plugins.configs.coq"),
 	require("plugins.configs.cmp"),
 	require("plugins.configs.lspsignature"),
-	require("plugins.configs.copilot"),
+	-- require("plugins.configs.copilot"),
 	-- Tmux
 	require("plugins.configs.tmux"),
 	---- Git
