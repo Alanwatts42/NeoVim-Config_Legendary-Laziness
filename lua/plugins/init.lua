@@ -102,13 +102,16 @@ local plugins = {
 	require("lsp.configs.python"),
 
 	---- Snippets
-	"L3MON4D3/LuaSnip",
+	{
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+    },
 	"rafamadriz/friendly-snippets",
 	---- Completion
 	-- require("plugins.configs.coq"),
 	require("plugins.configs.cmp"),
 	require("plugins.configs.lspsignature"),
-	-- require("plugins.configs.copilot"),
+	require("plugins.configs.copilot"),
 	-- Tmux
 	require("plugins.configs.tmux"),
 	---- Git
@@ -120,5 +123,5 @@ local plugins = {
     "gennaro-tedesco/nvim-commaround",
     "JoosepAlviste/nvim-ts-context-commentstring",
 }
--- vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});
+vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});
 lazy.setup(plugins)

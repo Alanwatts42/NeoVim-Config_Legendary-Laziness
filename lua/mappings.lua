@@ -20,12 +20,12 @@ local n_opts = {
 wk.register({
 	["<c-a>"] = { "ggVG", "[SELECT] Select all" },
 	-- Edit
+    ["D"] = { '"_D', "Do not copy when deleting" },
 	-- ["d"] = { '"_d', "Do not copy when deleting" },
-	-- ["D"] = { '"_D', "Do not copy when deleting" },
-	-- ["dd"] = { '"_dd', "Do not copy when deleting" },
-	["c"] = { '"_c', "Do not copy when changing" },
+    -- ["dd"] = { '"_dd', "Do not copy when deleting" },
+	--[[ ["c"] = { '"_c', "Do not copy when changing" },
 	["C"] = { '"_C', "Do not copy when changing" },
-	["cc"] = { '"_cc', "Do not copy when changing" },
+	["cc"] = { '"_cc', "Do not copy when changing" }, ]]
     
 	["<a-p>"] = { '"_diwP', "Replace word with paste" },
 	["<a-s-p>"] = { '"_ddP', "Replace line with paste" },
@@ -251,7 +251,7 @@ wk.register({
 	["cc"] = { '"_cc', "Do not copy when changing" },
 	["p"] = { '"_dP', "Paste without replacing what is was in clipboard" },
 	["<a-j>"] = { ":m '>+1<cr>gv=gv", "[MOVE] Move block down" },
-	["<a-k>"] = { ":m '<-2<cr>gv=gv", "[MOVE] Move block up" },
+    ["<a-k>"] = { ":m '<-2<cr>gv=gv", "[MOVE] Move block up" },
 	-- Motions
 	["H"] = { "^", "[MOTION] Move to first character of line" },
 	["L"] = { "$", "[MOTION] Move to last character of line" },
