@@ -89,6 +89,7 @@ local themes = {
     nightfox = {
         "EdenEast/nightfox.nvim",
         config = function()
+        require('lualine').setup({})
         require('nightfox').setup({
             options = {
 
@@ -110,10 +111,10 @@ local themes = {
                 },
                 },
                 styles = {               -- Style to be applied to different syntax groups
-                comments = "NONE",     -- Value is any valid attr-list value `:help attr-list`
+                comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
                 conditionals = "NONE",
                 constants = "NONE",
-                functions = "NONE",
+                functions = "bold",
                 keywords = "NONE",
                 numbers = "NONE",
                 operators = "NONE",
@@ -122,9 +123,9 @@ local themes = {
                 variables = "NONE",
                 },
                 inverse = {             -- Inverse highlight for different types
-                match_paren = false,
-                visual = false,
-                search = false,
+                match_paren = true,
+                visual = true,
+                search = true,
                 },
                 modules = {             -- List of various plugins and additional options
                 -- ...
@@ -211,7 +212,7 @@ local themes = {
             local theme = require('onedark')
             theme.setup {
                 style = 'darker',
-                transparent = false, -- Show/hide background
+                transparent = true, -- Show/hide background
                 code_style = {
                     comments = 'italic',
                     keywords = 'none',
