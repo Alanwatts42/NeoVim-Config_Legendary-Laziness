@@ -43,7 +43,7 @@ local plugins = {
 	require("plugins.configs.treesitter"),
 	
     ---- Utilities
-    require("plguins.configs.luarocks"),  -- Lua package manager
+    -- require("plguins.configs.luarocks"),  -- Lua package manager
 	require("plugins.configs.telescope"),
 	"terryma/vim-expand-region", -- Incremental selection expansion
 	require("plugins.configs.autopairs"),
