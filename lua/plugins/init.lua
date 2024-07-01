@@ -101,6 +101,10 @@ local plugins = {
     { 
         "nvim-neotest/nvim-nio" 
     },
+    -- mini.nvim addon
+    { 
+        'echasnovski/mini.nvim', version = '*' 
+    },
 
 
     "rcarriga/nvim-notify",   -- optional

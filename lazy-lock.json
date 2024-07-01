@@ -35,6 +35,7 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "37a336b653f8594df75c827ed589f1c91d91ff6c" },
   "mason-nvim-dap.nvim": { "branch": "main", "commit": "b874576d00be1dd25e5e9b375d9cd31718808583" },
   "mason.nvim": { "branch": "main", "commit": "0950b15060067f752fde13a779a994f59516ce3d" },
+  "mini.nvim": { "branch": "main", "commit": "19e1584124cda35388d4fdb911eab7124014e541" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "80dc74d081823649809f78370fa5b204aa9a853a" },
   "neoscroll.nvim": { "branch": "master", "commit": "a731f66f1d39ec6175fd201c5bf849e54abda99c" },
   "no-clown-fiesta.nvim": { "branch": "master", "commit": "caf86fbc3cf390cac8c5fba599f1500f49f622d7" },

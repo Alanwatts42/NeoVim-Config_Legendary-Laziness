@@ -89,7 +89,6 @@ local themes = {
     nightfox = {
         "EdenEast/nightfox.nvim",
         config = function()
-        require('lualine').setup({})
         require('nightfox').setup({
             options = {
 
@@ -138,6 +137,7 @@ local themes = {
 
             -- setup must be called before loading
             vim.cmd("colorscheme nightfox")
+            require('lualine').setup({})
         end
     },
 
