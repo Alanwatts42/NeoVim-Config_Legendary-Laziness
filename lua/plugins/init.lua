@@ -73,6 +73,9 @@ local plugins = {
     require("plugins.configs.glance"),
     require("plugins.configs.code-runner"),
     require("plugins.configs.spread"),
+    require("plugins.configs.lazydev"),
+
+    
     {
         "kiyoon/jupynium.nvim",
         build = "pip3 install --user .",
