@@ -110,7 +110,7 @@ local themes = {
                 },
                 },
                 styles = {               -- Style to be applied to different syntax groups
-                comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
+                comments = "NONE",     -- Value is any valid attr-list value `:help attr-list`
                 conditionals = "NONE",
                 constants = "NONE",
                 functions = "bold",
@@ -272,7 +272,7 @@ local themes = {
             transparent = true,
 
             -- Enable italics comments
-            italic_comments = true,
+            italic_comments = false,
 
             -- Replace all fillchars with ' ' for the ultimate clean look
             hide_fillchars = false,
@@ -330,7 +330,7 @@ local themes = {
         "tiagovla/tokyodark.nvim",
         config = function()
             vim.g.tokyodark_transparent_background = false
-            vim.g.tokyodark_enable_italic_comment = true
+            vim.g.tokyodark_enable_italic_comment = false
             vim.g.tokyodark_enable_italic = true
             vim.g.tokyodark_color_gamma = "0.0"
             vim.cmd 'colorscheme tokyodark'

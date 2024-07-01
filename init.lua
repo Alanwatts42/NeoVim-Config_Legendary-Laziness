@@ -4,4 +4,4 @@ require("mappings")
 require("lsp")
 require("autocmds")
 require("theme")
-
+require("config.lazy")
