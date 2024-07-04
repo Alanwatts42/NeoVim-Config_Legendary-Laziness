@@ -4,6 +4,7 @@ local _lspconfig, lspconfig = pcall(require, "lspconfig")
 if _lspconfig then
 	-- Python
 	lspconfig.pyright.setup({})
+    lspconfig.jedi_language_server.setup({})
 
 	-- LUA
 	lspconfig.lua_ls.setup({

@@ -75,7 +75,6 @@ local plugins = {
     require("plugins.configs.spread"),
     require("plugins.configs.lazydev"),
 
-    
     {
         "kiyoon/jupynium.nvim",
         build = "pip3 install --user .",
@@ -114,13 +113,53 @@ local plugins = {
     "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
 	
     ---- LSP/DAP
-	require("plugins.configs.mason"),
-	"neovim/nvim-lspconfig",
+   
+
+    {
+        "neovim/nvim-lspconfig",
+        opts = {
+        servers = {
+            pyright = {
+                enabled = lsp == "pyright",
+            },
+            basedpyright = {
+                enabled = lsp == "basedpyright",
+            },
+            -- [lsp] = {
+            --     enabled = true,
+            -- },
+            -- ruff_lsp = {
+            --     enabled = ruff == "ruff_lsp",
+            -- },
+            -- ruff = {
+            --     enabled = ruff == "ruff",
+            -- },
+            -- [ruff] = {
+            -- keys = {
+            --     {
+            --     "<leader>co",
+            --     LazyVim.lsp.action["source.organizeImports"],
+            --     desc = "Organize Imports",
+            --     },
+                    -- },
+                -- },
+        },
+        -- setup = {
+        --     [ruff] = function()
+        --     LazyVim.lsp.on_attach(function(client, _)
+        --         -- Disable hover in favor of Pyright
+        --         client.server_capabilities.hoverProvider = false
+        --     end, ruff)
+        --     end,
+            -- },
+        },
+    },
+    
     require("lsp.configs.dap"),
 	require("lsp.configs.java"),
 	require("lsp.configs.rust"),
 	require("lsp.configs.python"),
-
+	require("plugins.configs.mason"),
 	---- Snippets
 	{
         "L3MON4D3/LuaSnip",
@@ -144,5 +183,6 @@ local plugins = {
     "gennaro-tedesco/nvim-commaround",
     "JoosepAlviste/nvim-ts-context-commentstring",
 }
+
 vim.api.nvim_echo({ { 'Active theme: ' .. theme.theme_name, "Normal" } }, true, {});
 lazy.setup(plugins)
