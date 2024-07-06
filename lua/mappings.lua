@@ -14,7 +14,7 @@ local n_opts = {
 	prefix = "",
 	silent = true,
 	noremap = true,
-	nowait = true,
+	nowait = false,
 }
 
 wk.register({
@@ -27,47 +27,47 @@ wk.register({
 	["C"] = { '"_C', "Do not copy when changing" },
 	["cc"] = { '"_cc', "Do not copy when changing" }, ]]
     
-	["<a-p>"] = { '"_diwP', "Replace word with paste" },
-	["<a-s-p>"] = { '"_ddP', "Replace line with paste" },
+	-- ["<a-p>"] = { '"_diwP', "Replace word with paste" },
+	-- ["<a-s-p>"] = { '"_ddP', "Replace line with paste" },
 
-    ["<a-j>"] = { ":m .+1<cr>==", "Move line down" },
-	["<a-k>"] = { ":m .-2<cr>==", "Move line up" },
+	--    ["<a-j>"] = { ":m .+1<cr>==", "Move line down" },
+	-- ["<a-k>"] = { ":m .-2<cr>==", "Move line up" },
 
-	["<a-d>"] = { '"_diw', "Delete word" },
-	["<a-c>"] = { '"_ciw', "Change word" },
-	["<a-s-d>"] = { '<cmd>lua require("various-textobjs").subword(true)<cr>"_d', "Delete subword" },
-	["<a-s-c>"] = { '<cmd>lua require("various-textobjs").subword(true)<cr>"_c', "Change subword" },
-	["<a-z>"] = { '"_c<plug>(matchup-i%)', "Change within block delimiters or quotes" },
-	["<a-x>"] = { '"_ci(', "Change within parentheses" },
+	-- ["<a-d>"] = { '"_diw', "Delete word" },
+	-- ["<a-c>"] = { '"_ciw', "Change word" },
+	-- ["<a-s-d>"] = { '<cmd>lua require("various-textobjs").subword(true)<cr>"_d', "Delete subword" },
+	-- ["<a-s-c>"] = { '<cmd>lua require("various-textobjs").subword(true)<cr>"_c', "Change subword" },
+	-- ["<a-z>"] = { '"_c<plug>(matchup-i%)', "Change within block delimiters or quotes" },
+	-- ["<a-x>"] = { '"_ci(', "Change within parentheses" },
+	--
+	-- ["<a-a>"] = { '<cmd>TSTextobjectSelect @parameter.inner<cr>"_c', "Change function parameter" },
+	-- ["<a-s>"] = { '<cmd>TSTextobjectSelect @parameter.outer<cr>"_d', "Delete function parameter" },
 
-	["<a-a>"] = { '<cmd>TSTextobjectSelect @parameter.inner<cr>"_c', "Change function parameter" },
-	["<a-s>"] = { '<cmd>TSTextobjectSelect @parameter.outer<cr>"_d', "Delete function parameter" },
-
-	["<a-o>"] = { "mao<ESC>`a", "New line in normal mode" },
-	["<a-O>"] = { "maO<ESC>`a", "New line before in normal mode" },
+	-- ["<a-o>"] = { "mao<ESC>`a", "New line in normal mode" },
+	-- ["<a-O>"] = { "maO<ESC>`a", "New line before in normal mode" },
 
 	-- Motions
 	["H"] = { "^", "[MOTION] Move to first character of line" },
 	["L"] = { "$", "[MOTION] Move to last character of line" },
-	["W"] = { "<cmd>lua require('spider').motion('w')<cr>", "[MOTION] Spider-w motion" },
-	["B"] = { "<cmd>lua require('spider').motion('b')<cr>", "[MOTION] Spider-b motion" },
-	["E"] = { "<cmd>lua require('spider').motion('e')<cr>", "[MOTION] Spider-e motion" },
-	["gE"] = { "<cmd>lua require('spider').motion('ge')<cr>", "[MOTION] Spider-ge motion" },
+	-- ["W"] = { "<cmd>lua require('spider').motion('w')<cr>", "[MOTION] Spider-w motion" },
+	-- ["B"] = { "<cmd>lua require('spider').motion('b')<cr>", "[MOTION] Spider-b motion" },
+	-- ["E"] = { "<cmd>lua require('spider').motion('e')<cr>", "[MOTION] Spider-e motion" },
+	-- ["gE"] = { "<cmd>lua require('spider').motion('ge')<cr>", "[MOTION] Spider-ge motion" },
 
 	---- Following remaps conflict with Neoscroll plugin for scrolling animations
-	["<c-d>"] = { "<c-d>zz", "Keep cursor in the middle while scrolling down" },
-	["<c-u>"] = { "<c-u>zz", "Keep cursor in the middle while scrolling up" },
+	-- ["<c-d>"] = { "<c-d>zz", "Keep cursor in the middle while scrolling down" },
+	-- ["<c-u>"] = { "<c-u>zz", "Keep cursor in the middle while scrolling up" },
 	----
-	["n"] = { "nzz", "Keep searching result in the middle" },
-	["N"] = { "Nzz", "Keep searching result in the middle" },
+	-- ["n"] = { "nzz", "Keep searching result in the middle" },
+	-- ["N"] = { "Nzz", "Keep searching result in the middle" },
 
 	["<a-down>"] = { "<cmd>TSTextobjectGotoNextStart @function.outer<cr>", "[MOTION] Move to next method" },
 	["<a-up>"] = { "<cmd>TSTextobjectGotoPreviousStart @function.outer<cr>", "[MOTION] Move to previous method" },
 
 	-- Window navigation
 	---- Without bufferline
-	["<a-left>"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
-	["<a-right>"] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
+	-- ["<a-left>"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
+	-- ["<a-right>"] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
 	-- With bufferline
 	["<a-h>"] = { "<cmd>BufferLineCyclePrev<cr>", "[BUFFER] Go previous buffer" },
 	["<a-l>"] = { "<cmd>BufferLineCycleNext<cr>", "[BUFFER] Go next buffer" },
@@ -79,16 +79,16 @@ wk.register({
 	["<a-q>"] = { "<cmd>Bdelete!<cr>", "[BUFFER] Close current buffer" },
 	["<a-w>"] = { "<cmd>%bd!|e#|bd#<cr>", "[BUFFER] Close other buffers" },
 	-- Folds
-	["|"] = { "zM", "[FOLDS] Collapse all folds" },
+	["||"] = { "zM", "[FOLDS] Collapse all folds" },
 	["--"] = { "zR", "[FOLDS] Expand all folds" },
 	["<a-s-down>"] = { "zr", "[FOLDS] Increase fold level" },
 	["<a-s-up>"] = { "zm", "[FOLDS] Decrease fold level" },
-	-- ["<a-down>"] = { "zo", "[FOLDS] Open fold" },
-	-- ["<a-up>"] = { "zc", "[FOLDS] Close fold" },
+	["<a-down>"] = { "zo", "[FOLDS] Open fold" },
+	["<a-up>"] = { "zc", "[FOLDS] Close fold" },
 
 	-- Macros and registers
-	["t"] = { '"_', "Set black hole registry" },
-	["qj"] = { "@q", "Execute macro saved in 'q' register" },
+	-- ["t"] = { '"_', "Set black hole registry" },
+	-- ["qj"] = { "@q", "Execute macro saved in 'q' register" },
 
 	-- Find
 	[";;"] = { "<cmd>noh<cr>", "Clean search highlights" },
@@ -125,10 +125,10 @@ wk.register({
 	},
 
 	-- Debug
-	["<leader>d"] = {
+    ["<leader>d"] = {
 		name = "[DAP debug]",
+        e = { "<cmd>lua require'dap'.run_last()<cr>", "[DAP] Debug last" },
 		R = { "<cmd>lua require'dap'.run()<cr>", "[DAP] Run" },
-		e = { "<cmd>lua require'dap'.run_last()<cr>", "[DAP] Debug last" },
 		E = { "<cmd>Telescope dap configurations<cr>", "[DAP] Show debug configurations" },
 		k = { "<cmd>DapTerminate<cr>", "[DAP] Terminate" },
 		b = { "<cmd>DapToggleBreakpoint<cr>", "[DAP] Toggle breakpoint" },
@@ -144,7 +144,7 @@ wk.register({
 		v = { "<cmd>DapStepOver<cr>", "[DAP] Step over" },
 		i = { "<cmd>DapStepInto<cr>", "[DAP] Step into" },
 		o = { "<cmd>DapStepOut<cr>", "[DAP] Step out" },
-		x = { "<cmd>lua require('dapui').eval()<cr>", "[DAPUI] Evaluate}" },
+		x = { "<cmd>lua require('dapui').eval()<cr>", "[DAPUI] Evaluate"},
 		p = { "<cmd>DapToggleRepl<cr>", "[DAP] Repl open" },
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "[DAPUI] Toggle debugging UI" },
 		s = { "<cmd>Telescope dap list_breakpoints<cr>", "[TELESCOPE DAP] Show all breakpoints" },
@@ -228,9 +228,9 @@ wk.register({
 	["<a-c>"] = { '<C-o>"_ciw', "Change word" },
 	["<a-w>"] = { "<C-o>w", "Move to next word" },
 	["<a-b>"] = { "<C-o>b", "Move to previous word" },
-	["<a-e>"] = { "<ESC>ea", "Move to end of word" },
-	["<a-j>"] = { "<ESC>:m .+1<cr>==gi", "[MOVE] Move block down" },
-	["<a-k>"] = { "<ESC>:m .-2<cr>==gi", "[MOVE] Move block up" },
+    -- ["<a-e>"] = { "<a-ea", "Move to end of word" },
+	--    ["<a-j>"] = { "<ESC>:m .+1<cr>==gi", "[MOVE] Move block down" },
+	-- ["<a-k>"] = { "<ESC>:m .-2<cr>==gi", "[MOVE] Move block up" },
 }, i_opts)
 
 -- VISUAL MODE MAPPINGS
@@ -242,7 +242,7 @@ local v_opts = {
 	noremap = true,
 }
 wk.register({
-	-- ["jk"] = { "<Esc>", "Normal mode switch" },
+    -- ["jk"] = { "<Esc>", "Normal mode switch" },
 	["<c-a>"] = { "ggOG", "[SELECT] Select all" },
 	["v"] = { "^o$", "[SELECT] Select trimmed line" },
 	-- Edit
@@ -303,7 +303,7 @@ local t_opts = {
 	prefix = "",
 	silent = true,
 	noremap = true,
-	nowait = true,
+    nowait = true,
 }
 wk.register({
 	["<c-h>"] = { "<cmd>wincmd h<cr>,", "[TERMINAL] Move left" },

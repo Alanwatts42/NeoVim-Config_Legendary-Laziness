@@ -1,12 +1,12 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
-		"hiphish/rainbow-delimiters.nvim",
+		"hiphish/rainbow-delimiters.nvim", -- multi-colored delimiters (spaces, commas)
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"windwp/nvim-ts-autotag",
-		"nvim-treesitter/nvim-treesitter-refactor",
+		"windwp/nvim-ts-autotag", -- automatic tagging
+		"nvim-treesitter/nvim-treesitter-refactor", -- automated refactoring
 		"nvim-treesitter/playground", -- View treesitter information directly in Neovim
-		"andymass/vim-matchup",
+		"andymass/vim-matchup", -- matching {("'")} grouping symbols
 	},
 	build = ":TSUpdate",
 	config = function()
@@ -23,23 +23,50 @@ return {
 			},
 			indent = {
 				enable = true,
-				disable = { "python", "css", "rust" },
+				disable = { "css", "rust" },
 			},
 			--ensure_installed = "all",
 			ensure_installed = {
+                
+                -- Linux/Android
+                "bash",
+                "regex",
+                "vim",
 				"java",
-				"cpp",
-				"rust",
-				"python",
-				"lua",
-				"html",
-				"json",
-				"dockerfile",
-				"yaml",
-				"css",
+				
+                -- Data Science
+                "python",
+                "rust",
+                "go",
+                "graphql",
+			    
+                -- Web	
+                "css",
+                "html",
 				"javascript",
 				"typescript",
-				"vue",
+                -- "proto",
+				-- "vue",
+                -- "svelte",
+                
+                -- Prototyping
+                "markdown",
+                "markdown_inline",
+                "lua",
+                "embedded_template",
+                
+                -- Configuration
+                "yaml",
+                "json",
+                "json5",
+                "jsonc",
+                -- "astro",
+                -- "toml",
+                -- "dockerfile",
+                
+                -- Harder, older, faster, longer (time to master)
+				-- "c",
+				-- "cpp",
 			},
 			refactor = {
 				highlight_definitions = {
@@ -47,14 +74,14 @@ return {
 					-- Set to false if you have an `updatetime` of ~100.
 					clear_on_cursor_move = true,
 				},
-				highlight_current_scope = { enable = false },
+				highlight_current_scope = { enable = true },
 				navigation = {
 					enable = true,
 					-- Assign keymaps to false to disable them, e.g. `goto_definition = false`.
 					keymaps = {
 						goto_definition = false,
 						list_definitions = false,
-						list_definitions_toc = false,
+						list_definitions_toc = true,
 						goto_next_usage = "]]",
 						goto_previous_usage = "[[",
 					},

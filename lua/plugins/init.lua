@@ -74,7 +74,24 @@ local plugins = {
     require("plugins.configs.code-runner"),
     require("plugins.configs.spread"),
     require("plugins.configs.lazydev"),
+    
+    -- changes made 07/04/2024 - 11:13 -- start
+    require("plugins.configs.CopilotChat"),
+    require("plugins.configs.mini"), -- added config for mini.surround
+    -- Note: Default keybind is highlight word in v mode sa<"> = "word"
+    -- same keybind surrounds word with any symbol: i.e. (), {}, []
 
+    { 'echasnovski/mini.nvim', version = '*' }, -- Tools for surround characters i.e. "'" etc.
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Indent & spacing guide
+    -- Hydra - allows custom hints for a group of keybindings based on common prefix i.e. the <C-w> prefix for window actions. Each new prefix capable of having many heads, hence the name.
+    {
+        "nvimtools/hydra.nvim",
+        config = function()
+            -- create hydras in here
+        end
+    },       
+    -- changes made 07/04/2024 - 11:13 -- end
+    
     {
         "kiyoon/jupynium.nvim",
         build = "pip3 install --user .",
@@ -117,43 +134,7 @@ local plugins = {
 
     {
         "neovim/nvim-lspconfig",
-        opts = {
-        servers = {
-            pyright = {
-                enabled = lsp == "pyright",
-            },
-            basedpyright = {
-                enabled = lsp == "basedpyright",
-            },
-            -- [lsp] = {
-            --     enabled = true,
-            -- },
-            -- ruff_lsp = {
-            --     enabled = ruff == "ruff_lsp",
-            -- },
-            -- ruff = {
-            --     enabled = ruff == "ruff",
-            -- },
-            -- [ruff] = {
-            -- keys = {
-            --     {
-            --     "<leader>co",
-            --     LazyVim.lsp.action["source.organizeImports"],
-            --     desc = "Organize Imports",
-            --     },
-                    -- },
-                -- },
-        },
-        -- setup = {
-        --     [ruff] = function()
-        --     LazyVim.lsp.on_attach(function(client, _)
-        --         -- Disable hover in favor of Pyright
-        --         client.server_capabilities.hoverProvider = false
-        --     end, ruff)
-        --     end,
-            -- },
-        },
-    },
+    }, 
     
     require("lsp.configs.dap"),
 	require("lsp.configs.java"),
