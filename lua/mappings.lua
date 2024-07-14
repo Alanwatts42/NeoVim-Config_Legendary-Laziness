@@ -61,8 +61,8 @@ wk.register({
 	-- ["n"] = { "nzz", "Keep searching result in the middle" },
 	-- ["N"] = { "Nzz", "Keep searching result in the middle" },
 
-	["<a-down>"] = { "<cmd>TSTextobjectGotoNextStart @function.outer<cr>", "[MOTION] Move to next method" },
-	["<a-up>"] = { "<cmd>TSTextobjectGotoPreviousStart @function.outer<cr>", "[MOTION] Move to previous method" },
+	["<a-n>"] = { "<cmd>TSTextobjectGotoNextStart @function.outer<cr>", "[MOTION] Move to next method" },
+	["<a-N>"] = { "<cmd>TSTextobjectGotoPreviousStart @function.outer<cr>", "[MOTION] Move to previous method" },
 
 	-- Window navigation
 	---- Without bufferline
