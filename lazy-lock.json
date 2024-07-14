@@ -70,6 +70,7 @@
   "nvim-ufo": { "branch": "main", "commit": "aa2e676af592b4e99c105d80d6eafd1afc215d99" },
   "nvim-various-textobjs": { "branch": "main", "commit": "bde0481460bfaf0833bd5df7213e6bddcf9b0d8e" },
   "nvim-web-devicons": { "branch": "master", "commit": "c0cfc1738361b5da1cd0a962dd6f774cc444f856" },
+  "p5-Neovim-Ext": { "branch": "master", "commit": "e433289bd1c9ddabe2a6552c9874b2cc39b6a826" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
@@ -92,6 +93,7 @@
   "vim-expand-region": { "branch": "master", "commit": "966513543de0ddc2d673b5528a056269e7917276" },
   "vim-matchup": { "branch": "master", "commit": "1535a769d5dca851fe7d41b0be95f7c7203a4bef" },
   "vim-startify": { "branch": "master", "commit": "4e089dffdad46f3f5593f34362d530e8fe823dcf" },
+  "vim-tmux-focus-events": { "branch": "master", "commit": "b1330e04ffb95ede8e02b2f7df1f238190c67056" },
   "which-key.nvim": { "branch": "main", "commit": "ca2d995c1f7d1ba4ce54a9936a6cdd8cfa594f2d" },
   "zen-mode.nvim": { "branch": "main", "commit": "e7e5563d736900679d147e1e6bbdc64d6ecbba3f" }
 }

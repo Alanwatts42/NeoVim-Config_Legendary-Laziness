@@ -37,14 +37,13 @@ local plugins = {
 	-- require("plugins.configs.edgy"), -- Layout configurations
 	require("plugins.configs.hydra"),
 	"rcarriga/nvim-notify", -- Popup notifications
-	"mbbill/undotree",
-	require("plugins.configs.neotree"),
+	"mbbill/undotree", require("plugins.configs.neotree"),
 	require("plugins.configs.lualine"),
 	require("plugins.configs.treesitter"),
 	
     ---- Utilities
 
-
+    "tmux-plugins/vim-tmux-focus-events", --fix for tmux focus events option
     require("plugins.configs.telescope"),
 	"terryma/vim-expand-region", -- Incremental selection expansion
 	require("plugins.configs.autopairs"),
@@ -74,6 +73,7 @@ local plugins = {
     require("plugins.configs.code-runner"),
     require("plugins.configs.spread"),
     require("plugins.configs.lazydev"),
+    "jacquesg/p5-Neovim-Ext", -- Perl bindings for NeoVim
     
     -- changes made 07/04/2024 - 11:13 -- start
     require("plugins.configs.CopilotChat"),
