@@ -4,7 +4,7 @@ return {
 		"hiphish/rainbow-delimiters.nvim", -- multi-colored delimiters (spaces, commas)
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"windwp/nvim-ts-autotag", -- automatic tagging
-		"nvim-treesitter/nvim-treesitter-refactor", -- automated refactoring
+--		"nvim-treesitter/nvim-treesitter-refactor", -- automated refactoring
 		"nvim-treesitter/playground", -- View treesitter information directly in Neovim
 		"andymass/vim-matchup", -- matching {("'")} grouping symbols
 	},
@@ -18,28 +18,29 @@ return {
 		vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 
 		require("nvim-treesitter.configs").setup({
-			autotag = {
-				enable = true,
+            compilers = {
+                "clang",
+                "gcc",
+            },
+            autotag = {
+				enable = false,
 			},
 			indent = {
 				enable = true,
-				disable = { "css", "rust" },
+				--disable = { "css", "rust" },
 			},
 			--ensure_installed = "all",
 			ensure_installed = {
-                
                 -- Linux/Android
                 "bash",
                 "regex",
                 "vim",
 				"java",
-				
                 -- Data Science
                 "python",
                 "rust",
                 "go",
                 "graphql",
-			    
                 -- Web	
                 "css",
                 "html",
@@ -48,13 +49,11 @@ return {
                 -- "proto",
 				-- "vue",
                 -- "svelte",
-                
                 -- Prototyping
                 "markdown",
                 "markdown_inline",
                 "lua",
                 "embedded_template",
-                
                 -- Configuration
                 "yaml",
                 "json",
@@ -63,30 +62,29 @@ return {
                 -- "astro",
                 -- "toml",
                 -- "dockerfile",
-                
                 -- Harder, older, faster, longer (time to master)
-				-- "c",
-				-- "cpp",
+				"c",
+				"cpp",
 			},
-			refactor = {
-				highlight_definitions = {
-					enable = true,
-					-- Set to false if you have an `updatetime` of ~100.
-					clear_on_cursor_move = true,
-				},
-				highlight_current_scope = { enable = true },
-				navigation = {
-					enable = true,
+			--refactor = {
+			--	highlight_definitions = {
+			--		enable = true,
+			--		-- Set to false if you have an `updatetime` of ~100.
+			--		clear_on_cursor_move = true,
+			--	},
+			--	highlight_current_scope = { enable = true },
+			--	navigation = {
+			--		enable = true,
 					-- Assign keymaps to false to disable them, e.g. `goto_definition = false`.
-					keymaps = {
-						goto_definition = false,
-						list_definitions = false,
-						list_definitions_toc = true,
-						goto_next_usage = "]]",
-						goto_previous_usage = "[[",
-					},
-				},
-			},
+			--		keymaps = {
+			--			goto_definition = false,
+			--			list_definitions = false,
+			--			list_definitions_toc = true,
+			--			goto_next_usage = "]]",
+			--			goto_previous_usage = "[[",
+			--		},
+			--	},
+		--	},
 			rainbow = {
 				colors = {
 					colors.magenta,

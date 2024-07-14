@@ -76,7 +76,7 @@ local plugins = {
     "jacquesg/p5-Neovim-Ext", -- Perl bindings for NeoVim
     
     -- changes made 07/04/2024 - 11:13 -- start
-    require("plugins.configs.CopilotChat"),
+   -- require("plugins.configs.CopilotChat"),
     require("plugins.configs.mini"), -- added config for mini.surround
     -- Note: Default keybind is highlight word in v mode sa<"> = "word"
     -- same keybind surrounds word with any symbol: i.e. (), {}, []
@@ -114,7 +114,7 @@ local plugins = {
     "GCBallesteros/jupytext.nvim",
         config = true,
         -- Depending on your nvim distro or config you may need to make the loading not lazy
-        -- lazy=false,
+        lazy=false,
     },   
 
     { 
