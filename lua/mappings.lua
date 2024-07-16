@@ -8,308 +8,223 @@ end
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
+-- ---------------------------------------
+-- New Spec Template:  
+-- { "", "", desc = "", nowait = false, remap = false },
+-- ---------------------------------------
+
 -- NORMAL MODE MAPPINGS
-local n_opts = {
-	mode = "n",
-	prefix = "",
-	silent = true,
-	noremap = true,
-	nowait = false,
-}
+wk.add({
 
-wk.register({
-	["<c-a>"] = { "ggVG", "[SELECT] Select all" },
-	-- Edit
-    ["D"] = { '"_D', "Do not copy when deleting" },
-	-- ["d"] = { '"_d', "Do not copy when deleting" },
-    -- ["dd"] = { '"_dd', "Do not copy when deleting" },
-	--[[ ["c"] = { '"_c', "Do not copy when changing" },
-	["C"] = { '"_C', "Do not copy when changing" },
-	["cc"] = { '"_cc', "Do not copy when changing" }, ]]
-    
-	-- ["<a-p>"] = { '"_diwP', "Replace word with paste" },
-	-- ["<a-s-p>"] = { '"_ddP', "Replace line with paste" },
-
-	--    ["<a-j>"] = { ":m .+1<cr>==", "Move line down" },
-	-- ["<a-k>"] = { ":m .-2<cr>==", "Move line up" },
-
-	-- ["<a-d>"] = { '"_diw', "Delete word" },
-	-- ["<a-c>"] = { '"_ciw', "Change word" },
-	-- ["<a-s-d>"] = { '<cmd>lua require("various-textobjs").subword(true)<cr>"_d', "Delete subword" },
-	-- ["<a-s-c>"] = { '<cmd>lua require("various-textobjs").subword(true)<cr>"_c', "Change subword" },
-	-- ["<a-z>"] = { '"_c<plug>(matchup-i%)', "Change within block delimiters or quotes" },
-	-- ["<a-x>"] = { '"_ci(', "Change within parentheses" },
+   -- Editing
+    --
+    { "<c-a>", "ggVG", desc = "[SELECT] Select all", nowait = false, remap = false },
+    { "D", '"_D', desc = "Do not copy when deleting", nowait = false, remap = false },
+    --
+    -- Motion
+    --
+    { "H", "^", desc = "[MOTION] Move to first character of line", nowait = false, remap = false },
+    { "L", "$", desc = "[MOTION] Move to last character of line", nowait = false, remap = false },
+    -- Buffer
+    { "Q", "<cmd>qall!<cr>", desc = "[BUFFER] Quit all without saving", nowait = false, remap = false },
+    { "Z", "<cmd>wall<cr>", desc = "[BUFFER] Save all", nowait = false, remap = false },
 	--
-	-- ["<a-a>"] = { '<cmd>TSTextobjectSelect @parameter.inner<cr>"_c', "Change function parameter" },
-	-- ["<a-s>"] = { '<cmd>TSTextobjectSelect @parameter.outer<cr>"_d', "Delete function parameter" },
-
-	-- ["<a-o>"] = { "mao<ESC>`a", "New line in normal mode" },
-	-- ["<a-O>"] = { "maO<ESC>`a", "New line before in normal mode" },
-
-	-- Motions
-	["H"] = { "^", "[MOTION] Move to first character of line" },
-	["L"] = { "$", "[MOTION] Move to last character of line" },
-	-- ["W"] = { "<cmd>lua require('spider').motion('w')<cr>", "[MOTION] Spider-w motion" },
-	-- ["B"] = { "<cmd>lua require('spider').motion('b')<cr>", "[MOTION] Spider-b motion" },
-	-- ["E"] = { "<cmd>lua require('spider').motion('e')<cr>", "[MOTION] Spider-e motion" },
-	-- ["gE"] = { "<cmd>lua require('spider').motion('ge')<cr>", "[MOTION] Spider-ge motion" },
-
-	---- Following remaps conflict with Neoscroll plugin for scrolling animations
-	-- ["<c-d>"] = { "<c-d>zz", "Keep cursor in the middle while scrolling down" },
-	-- ["<c-u>"] = { "<c-u>zz", "Keep cursor in the middle while scrolling up" },
-	----
-	-- ["n"] = { "nzz", "Keep searching result in the middle" },
-	-- ["N"] = { "Nzz", "Keep searching result in the middle" },
-
-	["<a-n>"] = { "<cmd>TSTextobjectGotoNextStart @function.outer<cr>", "[MOTION] Move to next method" },
-	["<a-N>"] = { "<cmd>TSTextobjectGotoPreviousStart @function.outer<cr>", "[MOTION] Move to previous method" },
-
-	-- Window navigation
+    -- Window navigation
+    --
 	---- Without bufferline
-	-- ["<a-left>"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
-	-- ["<a-right>"] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
-	-- With bufferline
-	["<a-h>"] = { "<cmd>BufferLineCyclePrev<cr>", "[BUFFER] Go previous buffer" },
-	["<a-l>"] = { "<cmd>BufferLineCycleNext<cr>", "[BUFFER] Go next buffer" },
-	["<a-b>"] = { "<cmd>e #<cr>", "[BUFFER] Switch to other buffer" },
-	["<a-t>"] = { "<cmd>ene<cr>", "[BUFFER] Open a new empty buffer" },
-	["Z"] = { "<cmd>wall<cr>", "[BUFFER] Save all" },
-	["Q"] = { "<cmd>qall!<cr>", "[BUFFER] Quit all without saving" },
-	-- Using famiu/bufdelete.nvim plugin commands to prevent messy behaviours with other plugins
-	["<a-q>"] = { "<cmd>Bdelete!<cr>", "[BUFFER] Close current buffer" },
-	["<a-w>"] = { "<cmd>%bd!|e#|bd#<cr>", "[BUFFER] Close other buffers" },
-	-- Folds
-	["||"] = { "zM", "[FOLDS] Collapse all folds" },
-	["--"] = { "zR", "[FOLDS] Expand all folds" },
-	["<a-s-down>"] = { "zr", "[FOLDS] Increase fold level" },
-	["<a-s-up>"] = { "zm", "[FOLDS] Decrease fold level" },
-	["<a-down>"] = { "zo", "[FOLDS] Open fold" },
-	["<a-up>"] = { "zc", "[FOLDS] Close fold" },
+    { "<a-left>", "<cmd>bn<cr>", desc = "[BUFFER] Go previous buffer", nowait = false, remap = false },
+    { "<a-right>", "<cmd>bp<cr>", desc = "[BUFFER] Go next buffer", nowait = false, remap = false },
+   ---- With bufferline 
+    { "<a-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "[BUFFER] Go previous buffer", nowait = false, remap = false },
+    { "<a-l>", "<cmd>BufferLineCycleNext<cr>", desc = "[BUFFER] Go next buffer", nowait = false, remap = false },
+    { "<a-b>", "<cmd>e #<cr>", desc = "[BUFFER] Switch to other buffer", nowait = false, remap = false },
+    { "<a-t>", "<cmd>ene<cr>", desc = "[BUFFER] Open a new empty buffer", nowait = false, remap = false },
+    { "Z", "<cmd>wall<cr>", desc = "[BUFFER] Save all", nowait = false, remap = false },
+    { "Q", "<cmd>qall!<cr>", desc = "[BUFFER] Quit all without saving", nowait = false, remap = false },
+    { "<a-q>", "<cmd>Bdelete!<cr>", desc = "[BUFFER] Close current buffer", nowait = false, remap = false },
+    { "<a-w>", "<cmd>%bd!|e#|bd#<cr>", desc = "[BUFFER] Close other buffers", nowait = false, remap = false },
+    --
+    -- Folds
+    --
+    { "||", "zM", desc = "[FOLDS] Collapse all folds", nowait = false, remap = false },
+    { "--", "zR", desc = "[FOLDS] Expand all folds", nowait = false, remap = false },
+    { "<a-s-up>", "zm", desc = "[FOLDS] Decrease fold level", nowait = false, remap = false },
+    { "<a-s-down>", "zr", desc = "[FOLDS] Increase fold level", nowait = false, remap = false },
+    { "<a-up>", "zc", desc = "[FOLDS] Close fold", nowait = false, remap = false },
+    { "<a-down>", "zo", desc = "[FOLDS] Open fold", nowait = false, remap = false },
 
-	-- Macros and registers
+    -- Clear search highlights
+    { ";;", "<cmd>noh<cr>", desc = "Clean search highlights", nowait = false, remap = false },
+    -- 
+    -- 
+    -- Code Navigation - "<leader>c"
+    --
+    { "<leader>c", group = "[Code navigation]", nowait = false, remap = false },
+    { "<leader>cc", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "[LSP] Show incoming calls", nowait = false, remap = false },
+    { "<leader>cd", "<cmd>Glance definitions<cr>", desc = "[LSP] Go to definition", nowait = false, remap = false },
+    { "<leader>ch", "<cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "[LSP] Signature help", nowait = false, remap = false },
+    { "<leader>ci", "<cmd>Telescope lsp_implementations<cr>", desc = "[LSP] Go to implementation", nowait = false, remap = false },
+    { "<leader>cl", "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "[LSP] Go to declaration", nowait = false, remap = false },
+    { "<leader>cr", "<cmd>Telescope lsp_references<cr>", desc = "[LSP] Go to references", nowait = false, remap = false },
+    { "<leader>cs", "<cmd>lua require'jdtls'.super_implementation()<cr>", desc = "[JDLTS] Go to super implementation", nowait = false, remap = false },
+    { "<leader>ct", "<cmd>Glance type_definitions<cr>", desc = "[LSP] Go to type definition", nowait = false, remap = false },
+    { "<leader>cv", "<cmd>Lspsaga hover_doc<cr>", desc = "[LSP] Hover", nowait = false, remap = false },
+    { "<leader>cx", "<cmd>lua require'telescope.builtin'.treesitter{ symbols = {'method', 'function'}}<cr>", desc = "[TELESCOPE] Get current buffer functions", nowait = false, remap = false },
+    --
+    -- Debug - "<leader>d"
+    --
+    { "<leader>d", group = "[DAP debug]", nowait = false, remap = false },
+    { "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", desc = "[DAP] Set conditional breakpoint", nowait = false, remap = false },
+    { "<leader>dE", "<cmd>Telescope dap configurations<cr>", desc = "[DAP] Show debug configurations", nowait = false, remap = false },
+    { "<leader>dR", "<cmd>lua require'dap'.run()<cr>", desc = "[DAP] Run", nowait = false, remap = false },
+    { "<leader>db", "<cmd>DapToggleBreakpoint<cr>", desc = "[DAP] Toggle breakpoint", nowait = false, remap = false },
+    { "<leader>dc", "<cmd>DapContinue<cr>", desc = "[DAP] Continue", nowait = false, remap = false },
+    { "<leader>de", "<cmd>lua require'dap'.run_last()<cr>", desc = "[DAP] Debug last", nowait = false, remap = false },
+    { "<leader>di", "<cmd>DapStepInto<cr>", desc = "[DAP] Step into", nowait = false, remap = false },
+    { "<leader>dk", "<cmd>DapTerminate<cr>", desc = "[DAP] Terminate", nowait = false, remap = false },
+    { "<leader>dl", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", desc = "[DAP] Set log point breakpoint", nowait = false, remap = false },
+    { "<leader>do", "<cmd>DapStepOut<cr>", desc = "[DAP] Step out", nowait = false, remap = false },
+    { "<leader>dp", "<cmd>DapToggleRepl<cr>", desc = "[DAP] Repl open", nowait = false, remap = false },
+    { "<leader>ds", "<cmd>Telescope dap list_breakpoints<cr>", desc = "[TELESCOPE DAP] Show all breakpoints", nowait = false, remap = false },
+    { "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", desc = "[DAPUI] Toggle debugging UI", nowait = false, remap = false },
+    { "<leader>dv", "<cmd>DapStepOver<cr>", desc = "[DAP] Step over", nowait = false, remap = false },
+    { "<leader>dw", "<cmd>Telescope dap variables<cr>", desc = "[TELESCOPE DAP] Wariables", nowait = false, remap = false },
+    { "<leader>dx", "<cmd>lua require('dapui').eval()<cr>", desc = "[DAPUI] Evaluate", nowait = false, remap = false },
+    --
+    --
+    -- Diagnostics - "<leader>e"
+    --
+    { "<leader>e", group = "[Diagnostics]", nowait = false, remap = false },
+    { "<leader>en", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "[DIAG] Go to next error", nowait = false, remap = false },
+    { "<leader>ep", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "[DIAG] Go to previous error", nowait = false, remap = false },
+    --
+    --
+    -- Find & Search (Telescope) - "<leader>f"
+    --
+    -- Clear search highlights
+    { ";;", "<cmd>noh<cr>", desc = "Clean search highlights", nowait = false, remap = false },
+    -- 
+    { "<leader>f", group = "[TELESCOPE]", nowait = false, remap = false },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "[TELESCOPE] Find buffers", nowait = false, remap = false },
+    { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "[TELESCOPE] Search command history", nowait = false, remap = false },
+    { "<leader>fd", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "[TELESCOPE] Current buffer fuzzy find", nowait = false, remap = false },
+    { "<leader>fe", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", desc = "[TELESCOPE] Find File", nowait = false, remap = false },
+    { "<leader>ff", "<cmd>Telescope frecency<cr>", desc = "[TELESCOPE] Frecency", nowait = false, remap = false },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "[TELESCOPE] Find File by live grep (search content inside file)", nowait = false, remap = false },
+    { "<leader>fh", "<cmd>Telescope oldfiles<cr>", desc = "[TELESCOPE] Recent files", nowait = false, remap = false },
+    { "<leader>fib", "<cmd>Telescope git_branches<cr>", desc = "[TELESCOPE] Git branches", nowait = false, remap = false },
+    { "<leader>fic", "<cmd>Telescope git_commits<cr>", desc = "[TELESCOPE] Git commits", nowait = false, remap = false },
+    { "<leader>fih", "<cmd>Telescope git_stash<cr>", desc = "[TELESCOPE] Git stash", nowait = false, remap = false },
+    { "<leader>fis", "<cmd>Telescope git_status<cr>", desc = "[TELESCOPE] Git status", nowait = false, remap = false },
+    { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "[TELESCOPE] Marks", nowait = false, remap = false },
+    { "<leader>fn", "<cmd>Telescope grep_string<cr>", desc = "[TELESCOPE] Find files using grep in file names", nowait = false, remap = false },
+    { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "[TELESCOPE] Search projects", nowait = false, remap = false },
+    { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "[TELESCOPE LSP] Find symbols", nowait = false, remap = false },
+    { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "[TELESCOPE] TODO list", nowait = false, remap = false },
+    { "<leader>fx", "<cmd>Telescope neoclip<cr>", desc = "[TELESCOPE] Search in clipboard manager", nowait = false, remap = false },
+    { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "[TELESCOPE] Zoxide", nowait = false, remap = false },
+    --
+    --
+    -- Git
+    --
+    { "<leader>g", group = "[GIT]", nowait = false, remap = false },
+    { "<leader>gd", "<cmd>Gitsigns diffthis<cr>", desc = "[GIT] Diff", nowait = false, remap = false },
+    { "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>", desc = "[GIT] Preview hunk", nowait = false, remap = false },
+    { "<leader>gn", "<cmd>Gitsigns next_hunk<cr>", desc = "[GIT] Next hunk", nowait = false, remap = false },
+    { "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>", desc = "[GIT] Prev hunk", nowait = false, remap = false },
+    -- 
+    -- Jumps
+    --
+    { "<leader>j", group = "[Jumps]", nowait = false, remap = false },
+    { "<leader>ja", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "[HARPOON] Add file", nowait = false, remap = false },
+    { "<leader>jk", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "[HARPOON] Show quick menu", nowait = false, remap = false },
+    -- 
+    --
+    -- Display Modes
+    --
+    { "<leader>m", group = "[Display modes]", nowait = false, remap = false },
+    { "<leader>mz", "<cmd>ZenMode<cr>", desc = "[MODE] Toggle zen mode", nowait = false, remap = false },
+    --
+    -- Code Refactor
+    --
+    { "<leader>r", group = "[Code refactor]", nowait = false, remap = false },
+    { "<leader>rI", "<cmdr:Refactor inline_func <cr>", desc = "[REFACTOR] Inline function", nowait = false, remap = false },
+    { "<leader>re", "<cmd>Lspsaga code_action<cr>", desc = "[LSP] Code actions", nowait = false, remap = false },
+    { "<leader>rf", "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", desc = "[CONFORM] Format code", nowait = false, remap = false },
+    { "<leader>ri", "<cmdr:Refactor inline_var <cr>", desc = "[REFACTOR] Inline variable", nowait = false, remap = false },
+    { "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "[LSP] Rename", nowait = false, remap = false },
+    -- 
+    -- Views
+    --
+    { "<leader>v", group = "[Views]", nowait = false, remap = false },
+    { "<leader>vf", "<cmd>NeoTreeFocusToggle<cr>", desc = "[NEOTREE] Toggle", nowait = false, remap = false },
+    { "<leader>vp", "<cmd>TroubleToggle<cr>", desc = "[TROUBLE] Toggle", nowait = false, remap = false },
+    { "<leader>vs", "<cmd>AerialToggle<cr>", desc = "[AERIAL] Toggle", nowait = false, remap = false },
+    { "<leader>vt", "<cmd>ToggleTerm<cr>", desc = "[TOGGLETERM] Open new terminal", nowait = false, remap = false },
+    { "<leader>vu", "<cmd>UndotreeToggle<cr>", desc = "[UNDOTREE]Toggle undotree", nowait = false, remap = false },
+        -- Macros and registers
 	-- ["t"] = { '"_', "Set black hole registry" },
 	-- ["qj"] = { "@q", "Execute macro saved in 'q' register" },
-
-	-- Find
-	[";;"] = { "<cmd>noh<cr>", "Clean search highlights" },
-	["<leader>f"] = {
-		name = "[TELESCOPE]",
-		e = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "[TELESCOPE] Find File" },
-		n = { "<cmd>Telescope grep_string<cr>", "[TELESCOPE] Find files using grep in file names" },
-		g = { "<cmd>Telescope live_grep<cr>", "[TELESCOPE] Find File by live grep (search content inside file)" },
-		b = { "<cmd>Telescope buffers<cr>", "[TELESCOPE] Find buffers" },
-		m = { "<cmd>Telescope marks<cr>", "[TELESCOPE] Marks" },
-		h = { "<cmd>Telescope oldfiles<cr>", "[TELESCOPE] Recent files" },
-		d = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "[TELESCOPE] Current buffer fuzzy find" },
-		t = { "<cmd>TodoTelescope<cr>", "[TELESCOPE] TODO list" },
-		c = { "<cmd>Telescope command_history<cr>", "[TELESCOPE] Search command history" },
-		x = { "<cmd>Telescope neoclip<cr>", "[TELESCOPE] Search in clipboard manager" },
-		p = { "<cmd>Telescope projects<cr>", "[TELESCOPE] Search projects" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "[TELESCOPE LSP] Find symbols" },
-		z = { "<cmd>Telescope zoxide list<cr>", "[TELESCOPE] Zoxide" },
-		f = { "<cmd>Telescope frecency<cr>", "[TELESCOPE] Frecency" },
-		ic = { "<cmd>Telescope git_commits<cr>", "[TELESCOPE] Git commits" },
-		ib = { "<cmd>Telescope git_branches<cr>", "[TELESCOPE] Git branches" },
-		is = { "<cmd>Telescope git_status<cr>", "[TELESCOPE] Git status" },
-		ih = { "<cmd>Telescope git_stash<cr>", "[TELESCOPE] Git stash" },
-	},
-
-	-- Views
-	["<leader>v"] = {
-		name = "[Views]",
-		f = { "<cmd>NeoTreeFocusToggle<cr>", "[NEOTREE] Toggle" },
-		p = { "<cmd>TroubleToggle<cr>", "[TROUBLE] Toggle" },
-		s = { "<cmd>AerialToggle<cr>", "[AERIAL] Toggle" },
-		t = { "<cmd>ToggleTerm<cr>", "[TOGGLETERM] Open new terminal" },
-		u = { "<cmd>UndotreeToggle<cr>", "[UNDOTREE]Toggle undotree" },
-	},
-
-	-- Debug
-    ["<leader>d"] = {
-		name = "[DAP debug]",
-        e = { "<cmd>lua require'dap'.run_last()<cr>", "[DAP] Debug last" },
-		R = { "<cmd>lua require'dap'.run()<cr>", "[DAP] Run" },
-		E = { "<cmd>Telescope dap configurations<cr>", "[DAP] Show debug configurations" },
-		k = { "<cmd>DapTerminate<cr>", "[DAP] Terminate" },
-		b = { "<cmd>DapToggleBreakpoint<cr>", "[DAP] Toggle breakpoint" },
-		B = {
-			"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
-			"[DAP] Set conditional breakpoint",
-		},
-		l = {
-			"<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
-			"[DAP] Set log point breakpoint",
-		},
-		c = { "<cmd>DapContinue<cr>", "[DAP] Continue" },
-		v = { "<cmd>DapStepOver<cr>", "[DAP] Step over" },
-		i = { "<cmd>DapStepInto<cr>", "[DAP] Step into" },
-		o = { "<cmd>DapStepOut<cr>", "[DAP] Step out" },
-		x = { "<cmd>lua require('dapui').eval()<cr>", "[DAPUI] Evaluate"},
-		p = { "<cmd>DapToggleRepl<cr>", "[DAP] Repl open" },
-		u = { "<cmd>lua require'dapui'.toggle()<cr>", "[DAPUI] Toggle debugging UI" },
-		s = { "<cmd>Telescope dap list_breakpoints<cr>", "[TELESCOPE DAP] Show all breakpoints" },
-		w = { "<cmd>Telescope dap variables<cr>", "[TELESCOPE DAP] Wariables" },
-	},
-
-	-- Code navigation
-	["<leader>c"] = {
-		name = "[Code navigation]",
-		l = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "[LSP] Go to declaration" },
-		d = { "<cmd>Glance definitions<cr>", "[LSP] Go to definition" },
-		-- d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "[LSP] Go to definition" },
-		t = { "<cmd>Glance type_definitions<cr>", "[LSP] Go to type definition" },
-		-- t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "[LSP] Go to type definition" },
-		i = { "<cmd>Telescope lsp_implementations<cr>", "[LSP] Go to implementation" },
-		-- i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "[LSP] Go to implementation" },
-		s = { "<cmd>lua require'jdtls'.super_implementation()<cr>", "[JDLTS] Go to super implementation" },
-		r = { "<cmd>Telescope lsp_references<cr>", "[LSP] Go to references" },
-		-- r = { "<cmd>lua vim.lsp.buf.references()<cr>", "[LSP] Go to references" },
-		v = { "<cmd>Lspsaga hover_doc<cr>", "[LSP] Hover" },
-		c = { "<cmd>Telescope lsp_incoming_calls<cr>", "[LSP] Show incoming calls" },
-		h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "[LSP] Signature help" },
-		x = {
-			"<cmd>lua require'telescope.builtin'.treesitter{ symbols = {'method', 'function'}}<cr>",
-			"[TELESCOPE] Get current buffer functions",
-		},
-	},
-
-	-- Refactoring
-	["<leader>r"] = {
-		name = "[Code refactor]",
-		e = { "<cmd>Lspsaga code_action<cr>", "[LSP] Code actions" },
-		f = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "[CONFORM] Format code" },
-		n = { "<cmd>Lspsaga rename<cr>", "[LSP] Rename" },
-		i = { "<cmdr:Refactor inline_var <cr>", "[REFACTOR] Inline variable" },
-		I = { "<cmdr:Refactor inline_func <cr>", "[REFACTOR] Inline function" },
-	},
-
-	-- Errors and diagnostics
-	["<leader>e"] = {
-		name = "[Diagnostics]",
-		n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "[DIAG] Go to next error" },
-		p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "[DIAG] Go to previous error" },
-	},
-
-	-- Git
-	["<leader>g"] = {
-		name = "[GIT]",
-		d = { "<cmd>Gitsigns diffthis<cr>", "[GIT] Diff" },
-		n = { "<cmd>Gitsigns next_hunk<cr>", "[GIT] Next hunk" },
-		p = { "<cmd>Gitsigns prev_hunk<cr>", "[GIT] Prev hunk" },
-		h = { "<cmd>Gitsigns preview_hunk<cr>", "[GIT] Preview hunk" },
-	},
-	-- Display modes
-	["<leader>m"] = {
-		name = "[Display modes]",
-		z = { "<cmd>ZenMode<cr>", "[MODE] Toggle zen mode" },
-	},
-
-	-- Jumps/Marks
-	["<leader>j"] = {
-		name = "[Jumps]",
-		k = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "[HARPOON] Show quick menu" },
-		a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "[HARPOON] Add file" },
-	},
-}, n_opts)
+})
 
 -- INSERT MODE MAPPINGS
-local i_opts = {
-	mode = "i",
-	prefix = "",
-	silent = true,
-	noremap = true,
-	nowait = true,
-}
+wk.add({
+    mode = { "i" },
+    { "<a-b>", "<C-o>b", desc = "Move to previous word", nowait = true, remap = false },
+    { "<a-c>", '<C-o>"_ciw', desc = "Change word", nowait = true, remap = false },
+    { "<a-d>", '<C-o>"_diw', desc = "Delete word", nowait = true, remap = false },
+    { "<a-s>", "<Del>", desc = "Handy DEL on insert mode", nowait = true, remap = false },
+    { "<a-w>", "<C-o>w", desc = "Move to next word", nowait = true, remap = false },
+})
 
-wk.register({
-	-- ["jk"] = { "<Esc>", "Normal mode switch" },
-	["<a-s>"] = { "<Del>", "Handy DEL on insert mode" },
-	["<a-d>"] = { '<C-o>"_diw', "Delete word" },
-	["<a-c>"] = { '<C-o>"_ciw', "Change word" },
-	["<a-w>"] = { "<C-o>w", "Move to next word" },
-	["<a-b>"] = { "<C-o>b", "Move to previous word" },
-    -- ["<a-e>"] = { "<a-ea", "Move to end of word" },
-	--    ["<a-j>"] = { "<ESC>:m .+1<cr>==gi", "[MOVE] Move block down" },
-	-- ["<a-k>"] = { "<ESC>:m .-2<cr>==gi", "[MOVE] Move block up" },
-}, i_opts)
 
 -- VISUAL MODE MAPPINGS
-local v_opts = {
-	mode = "v",
-	nowait = true,
-	prefix = "",
-	silent = true,
-	noremap = true,
-}
-wk.register({
-    -- ["jk"] = { "<Esc>", "Normal mode switch" },
-	["<c-a>"] = { "ggOG", "[SELECT] Select all" },
-	["v"] = { "^o$", "[SELECT] Select trimmed line" },
-	-- Edit
-	["c"] = { '"_c', "Do not copy when changing" },
-	["C"] = { '"_C', "Do not copy when changing" },
-	["cc"] = { '"_cc', "Do not copy when changing" },
-	["p"] = { '"_dP', "Paste without replacing what is was in clipboard" },
-	["<a-j>"] = { ":m '>+1<cr>gv=gv", "[MOVE] Move block down" },
-    ["<a-k>"] = { ":m '<-2<cr>gv=gv", "[MOVE] Move block up" },
-	-- Motions
-	["H"] = { "^", "[MOTION] Move to first character of line" },
-	["L"] = { "$", "[MOTION] Move to last character of line" },
-	["<a-down>"] = { "<cmd>TSTextobjectGotoNextStart @function.outer<cr>", "[MOTION] Move to next method" },
-	["<a-up>"] = { "<cmd>TSTextobjectGotoPreviousStart @function.outer<cr>", "[MOTION] Move to previous method" },
-	["w"] = { "<cmd>lua require('spider').motion('w')<cr>", "[MOTION] Spider-w motion" },
-	["e"] = { "<cmd>lua require('spider').motion('e')<cr>", "[MOTION] Spider-e motion" },
-	["b"] = { "<cmd>lua require('spider').motion('b')<cr>", "[MOTION] Spider-b motion" },
-	["E"] = { "<cmd>lua require('spider').motion('ge')<cr>", "[MOTION] Spider-ge motion" },
+wk.add({
+    mode = { "v" },
+    { "<", "<gv", desc = "[Indent] Indent left", nowait = true, remap = false },
+    { "<a-down>", "<cmd>TSTextobjectGotoNextStart @function.outer<cr>", desc = "[MOTION] Move to next method", nowait = true, remap = false },
+    { "<a-j>", ":m '>+1<cr>gv=gv", desc = "[MOVE] Move block down", nowait = true, remap = false },
+    { "<a-k>", ":m '<-2<cr>gv=gv", desc = "[MOVE] Move block up", nowait = true, remap = false },
+    { "<a-up>", "<cmd>TSTextobjectGotoPreviousStart @function.outer<cr>", desc = "[MOTION] Move to previous method", nowait = true, remap = false },
+    { "<c-a>", "ggOG", desc = "[SELECT] Select all", nowait = true, remap = false },
+    { "<leader>dx", "<cmd>lua require('dapui').eval()<CR>", desc = "[DAPUI] Evaluate (selection in visual mode) }", nowait = true, remap = false },
+    { ">", ">gv", desc = "[Indent] Indent right", nowait = true, remap = false },
+    { "C", '"_C', desc = "Do not copy when changing", nowait = true, remap = false },
+    { "E", "<cmd>lua require('spider').motion('ge')<cr>", desc = "[MOTION] Spider-ge motion", nowait = true, remap = false },
+    { "H", "^", desc = "[MOTION] Move to first character of line", nowait = true, remap = false },
+    { "L", "$", desc = "[MOTION] Move to last character of line", nowait = true, remap = false },
+    { "b", "<cmd>lua require('spider').motion('b')<cr>", desc = "[MOTION] Spider-b motion", nowait = true, remap = false },
+    { "c", '"_c', desc = "Do not copy when changing", nowait = true, remap = false },
+    { "cc", '"_cc', desc = "Do not copy when changing", nowait = true, remap = false },
+    { "e", "<cmd>lua require('spider').motion('e')<cr>", desc = "[MOTION] Spider-e motion", nowait = true, remap = false },
+    { "p", '"_dP', desc = "Paste without replacing what is was in clipboard", nowait = true, remap = false },
+    { "v", "^o$", desc = "[SELECT] Select trimmed line", nowait = true, remap = false },
+    { "w", "<cmd>lua require('spider').motion('w')<cr>", desc = "[MOTION] Spider-w motion", nowait = true, remap = false },
+})
 
-	["<"] = { "<gv", "[Indent] Indent left" },
-	[">"] = { ">gv", "[Indent] Indent right" },
-	["<leader>dx"] = { "<cmd>lua require('dapui').eval()<CR>", "[DAPUI] Evaluate (selection in visual mode) }" },
-}, v_opts)
+-- SELECT MODE MAPPINGS
+--
+-- {
+-- None
+-- },
+--
+-- EXECUTION MODE MAPPINGS
 
--- Select mode mappings
-local s_opts = {
-	mode = "s",
-	prefix = "",
-    noremap = true,
-	silent = true,
-	nowait = true,
-}
-wk.register({
-	-- ["<a-Bs>"] = { "<C-o>diw", "Delete word" },
-	-- ["<a-c>"] = { "<C-o>ciw", "Change word" },
-}, s_opts)
+wk.add({
+    mode = { "x" },
+    { "<leader>r", group = "[Code refactor]", nowait = true, remap = false },
+    { "<leader>rl", "<cmdr:Refactor extract_to_file <cr>", desc = "[REFACTOR] Extract to file", nowait = true, remap = false },
+    { "<leader>rv", "<cmd>:Refactor extract_var <cr>", desc = "[REFACTOR] Extract variable", nowait = true, remap = false },
+    { "<leader>rx", "<cmd>:Refactor extract <cr>", desc = "[REFACTOR] Extract function", nowait = true, remap = false },
+})
 
--- Execution mode mappings
-local x_opts = {
-	mode = "x",
-	prefix = "",
-	silent = true,
-	noremap = true,
-	nowait = true,
-}
-wk.register({
-	["<leader>r"] = {
-		name = "[Code refactor]",
-		v = { "<cmd>:Refactor extract_var <cr>", "[REFACTOR] Extract variable" },
-		x = { "<cmd>:Refactor extract <cr>", "[REFACTOR] Extract function" },
-		l = { "<cmdr:Refactor extract_to_file <cr>", "[REFACTOR] Extract to file" },
-	},
-}, x_opts)
-
--- Terminal mode mappings
-local t_opts = {
-	mode = "t",
-	prefix = "",
-	silent = true,
-	noremap = true,
-    nowait = true,
-}
-wk.register({
-	["<c-h>"] = { "<cmd>wincmd h<cr>,", "[TERMINAL] Move left" },
-	["<c-j>"] = { "<cmd>wincmd j<cr>,", "[TERMINAL] Move down" },
-	["<c-k>"] = { "<cmd>wincmd k<cr>,", "[TERMINAL] Move up" },
-	["<c-l>"] = { "<cmd>wincmd l<cr>,", "[TERMINAL] Move right" },
-}, t_opts)
+-- TERMINAL MODE MAPPINGS
+wk.add({
+    mode = { "t" },
+    { "<c-h>", "<cmd>wincmd h<cr>,", desc = "[TERMINAL] Move left", nowait = true, remap = false },
+    { "<c-j>", "<cmd>wincmd j<cr>,", desc = "[TERMINAL] Move down", nowait = true, remap = false },
+    { "<c-k>", "<cmd>wincmd k<cr>,", desc = "[TERMINAL] Move up", nowait = true, remap = false },
+    { "<c-l>", "<cmd>wincmd l<cr>,", desc = "[TERMINAL] Move right", nowait = true, remap = false },
+})
 
 wk.setup({})
