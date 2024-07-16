@@ -36,7 +36,7 @@ M.colors = {
 local themes = {
 
     gruvbox = {
-         "ellisonleao/gruvbox.nvim", 
+         "ellisonleao/gruvbox.nvim",
         priority = 1000 ,
         config = function()
         require("gruvbox").setup({
@@ -155,7 +155,7 @@ local themes = {
             require('rasmus').setup{}
             vim.cmd 'colorscheme rasmus'
         end
-    }, 
+    },
 
    githubnvimtheme = {
         'projekt0n/github-nvim-theme',
@@ -165,7 +165,7 @@ local themes = {
             })
         end
     },
- 
+
     onenord = {
         "rmehri01/onenord.nvim",
         config = function()
@@ -189,7 +189,7 @@ local themes = {
             }
         end
     },
-    
+
     tokyonight = {
         "folke/tokyonight.nvim",
         config = function()
@@ -205,7 +205,7 @@ local themes = {
             theme.load()
         end
     },
-    
+
     onedark = {
         "navarasu/onedark.nvim",
         config = function()
@@ -227,7 +227,7 @@ local themes = {
             theme.load()
         end
     },
-    
+
     palenightfall = {
         "JoosepAlviste/palenightfall.nvim",
         config = function()
@@ -242,7 +242,7 @@ local themes = {
         -- config = function()
         --     require('abstractcs').setup {}
         -- end,
-        
+
         -- init function()
         --     vim.cmd 'colorscheme absctract-cs'
         -- end
@@ -307,9 +307,9 @@ local themes = {
                     },
             },
             })
-            
+
         end
-    },   
+    },
 
     nordic = {
         "AlexvZyl/nordic.nvim",
@@ -317,7 +317,7 @@ local themes = {
             require('nordic').setup {}
         end
     },
-    
+
     onedarkpro = {
         "olimorris/onedarkpro.nvim",
         config = function()
@@ -325,7 +325,7 @@ local themes = {
             require('onedarkpro').load()
         end
     },
-    
+
     tokyodark = {
         "tiagovla/tokyodark.nvim",
         config = function()
@@ -336,14 +336,14 @@ local themes = {
             vim.cmd 'colorscheme tokyodark'
         end
     },
-    
+
     moonfly = {
         "bluz71/vim-moonfly-colors",
         config = function()
             vim.cmd [[colorscheme moonfly]]
         end
     },
-    
+
     dracula = {
         "Mofiqul/dracula.nvim",
         config = function()
@@ -352,7 +352,7 @@ local themes = {
             theme.load()
         end
     },
-    
+
     draculanight = {
         "magidc/draculanight",
         config = function()
@@ -361,7 +361,7 @@ local themes = {
             theme.load()
         end
     },
-    
+
     catppuccin = {
         "catppuccin/nvim",
         name = "catppuccin",
@@ -370,7 +370,7 @@ local themes = {
             vim.cmd [[colorscheme catppuccin]]
         end
     },
-    
+
     material = {
         "marko-cerovac/material.nvim",
         config = function()
@@ -385,7 +385,7 @@ end
 
 M.get_active_theme =  function()
     theme = themes[M.theme_name]
-    theme.lazy = false 
+    theme.lazy = false
     theme.priority = 1000
     return theme
 end
