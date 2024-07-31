@@ -59,15 +59,13 @@ wk.add({
     -- Clear search highlights
     { ";;", "<cmd>noh<cr>", desc = "Clean search highlights", nowait = false, remap = false },
     --
-    -- Python
-    --
+    -- Python -- <leader>p
     { "<leader>p", group = "[Python]", nowait = false, remap = false },
-    { "<leader>pf", "<cmd>!python3 %<cr>", desc = "Run the current file using python3", nowait = false, remap = false },
-    { "<leader>P", "<cmd>!python3 %<cr>", desc = "Run the current file using python3", nowait = false, remap = false },
-    { "<leader>pm", "<cmd>!python3 main.py<cr>", desc = "Runs main.py file in the same directory as the file being worked on (handy if you must test your project by running a main.py file which runs runs the whole project, but which you usually won't actually need to edit, hence you can run main.py without leaving the file you are editing, assumes main.py is in the same directory as the file you're working on, which in my case happens to be the case quite often)", nowait = false, remap = false },
+    { "<leader>pf", "<cmd>w<cr><cmd>!python3 %<cr>", desc = "Run the current file using python3", nowait = false, remap = false },
+    { "<leader>P", "<cmd>w<cr><cmd>!python3 %<cr>", desc = "Run the current file using python3", nowait = false, remap = false },
+    { "<leader>pm", "<cmd>w<cr><cmd>!python3 main.py<cr>", desc = "Runs main.py file in the same directory as the file being worked on (handy if you must test your project by running a main.py file which runs runs the whole project, but which you usually won't actually need to edit, hence you can run main.py without leaving the file you are editing, assumes main.py is in the same directory as the file you're working on, which in my case happens to be the case quite often)", nowait = false, remap = false },
 
-    -- Code Navigation - "<leader>c"
-    --
+    -- Code Navigation - <leader>c
     { "<leader>c", group = "[Code navigation]", nowait = false, remap = false },
     { "<leader>cc", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "[LSP] Show incoming calls", nowait = false, remap = false },
     { "<leader>cd", "<cmd>Glance definitions<cr>", desc = "[LSP] Go to definition", nowait = false, remap = false },
@@ -80,8 +78,7 @@ wk.add({
     { "<leader>cv", "<cmd>Lspsaga hover_doc<cr>", desc = "[LSP] Hover", nowait = false, remap = false },
     { "<leader>cx", "<cmd>lua require'telescope.builtin'.treesitter{ symbols = {'method', 'function'}}<cr>", desc = "[TELESCOPE] Get current buffer functions", nowait = false, remap = false },
     --
-    -- Debug - "<leader>d"
-    --
+    -- Debug -- <leader>d
     { "<leader>d", group = "[DAP debug]", nowait = false, remap = false },
     { "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", desc = "[DAP] Set conditional breakpoint", nowait = false, remap = false },
     { "<leader>dE", "<cmd>Telescope dap configurations<cr>", desc = "[DAP] Show debug configurations", nowait = false, remap = false },
@@ -100,19 +97,12 @@ wk.add({
     { "<leader>dw", "<cmd>Telescope dap variables<cr>", desc = "[TELESCOPE DAP] Wariables", nowait = false, remap = false },
     { "<leader>dx", "<cmd>lua require('dapui').eval()<cr>", desc = "[DAPUI] Evaluate", nowait = false, remap = false },
     --
-    --
-    -- Diagnostics - "<leader>e"
-    --
+    -- Diagnostics -- <leader>e
     { "<leader>e", group = "[Diagnostics]", nowait = false, remap = false },
     { "<leader>en", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "[DIAG] Go to next error", nowait = false, remap = false },
     { "<leader>ep", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "[DIAG] Go to previous error", nowait = false, remap = false },
     --
-    --
-    -- Find & Search (Telescope) - "<leader>f"
-    --
-    -- Clear search highlights
-    { ";;", "<cmd>noh<cr>", desc = "Clean search highlights", nowait = false, remap = false },
-    -- 
+    -- Find & Search -- <leader>f
     { "<leader>f", group = "[TELESCOPE]", nowait = false, remap = false },
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "[TELESCOPE] Find buffers", nowait = false, remap = false },
     { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "[TELESCOPE] Search command history", nowait = false, remap = false },
@@ -132,30 +122,25 @@ wk.add({
     { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "[TELESCOPE] TODO list", nowait = false, remap = false },
     { "<leader>fx", "<cmd>Telescope neoclip<cr>", desc = "[TELESCOPE] Search in clipboard manager", nowait = false, remap = false },
     { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "[TELESCOPE] Zoxide", nowait = false, remap = false },
+    { ";;", "<cmd>noh<cr>", desc = "Clean search highlights", nowait = false, remap = false },
     --
-    --
-    -- Git
-    --
+    -- Git -- <leader>g
     { "<leader>g", group = "[GIT]", nowait = false, remap = false },
     { "<leader>gd", "<cmd>Gitsigns diffthis<cr>", desc = "[GIT] Diff", nowait = false, remap = false },
     { "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>", desc = "[GIT] Preview hunk", nowait = false, remap = false },
     { "<leader>gn", "<cmd>Gitsigns next_hunk<cr>", desc = "[GIT] Next hunk", nowait = false, remap = false },
     { "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>", desc = "[GIT] Prev hunk", nowait = false, remap = false },
     -- 
-    -- Jumps
-    --
+    -- Jumps -- <leader>j
     { "<leader>j", group = "[Jumps]", nowait = false, remap = false },
     { "<leader>ja", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "[HARPOON] Add file", nowait = false, remap = false },
     { "<leader>jk", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "[HARPOON] Show quick menu", nowait = false, remap = false },
-    -- 
     --
-    -- Display Modes
-    --
+    -- Display Modes -- <leader>m
     { "<leader>m", group = "[Display modes]", nowait = false, remap = false },
     { "<leader>mz", "<cmd>ZenMode<cr>", desc = "[MODE] Toggle zen mode", nowait = false, remap = false },
     --
-    -- Code Refactor
-    --
+    -- Code Refactor -- <leader>r
     { "<leader>r", group = "[Code refactor]", nowait = false, remap = false },
     { "<leader>rI", "<cmdr:Refactor inline_func <cr>", desc = "[REFACTOR] Inline function", nowait = false, remap = false },
     { "<leader>re", "<cmd>Lspsaga code_action<cr>", desc = "[LSP] Code actions", nowait = false, remap = false },
@@ -163,8 +148,7 @@ wk.add({
     { "<leader>ri", "<cmdr:Refactor inline_var <cr>", desc = "[REFACTOR] Inline variable", nowait = false, remap = false },
     { "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "[LSP] Rename", nowait = false, remap = false },
     -- 
-    -- Views
-    --
+    -- Views -- <leader>v
     { "<leader>v", group = "[Views]", nowait = false, remap = false },
     { "<leader>vf", "<cmd>NeoTreeFocusToggle<cr>", desc = "[NEOTREE] Toggle", nowait = false, remap = false },
     { "<leader>vp", "<cmd>TroubleToggle<cr>", desc = "[TROUBLE] Toggle", nowait = false, remap = false },
@@ -176,7 +160,18 @@ wk.add({
 	{"qj", "@q", desc = "Execute macro saved in 'q' register", nowait = false, remap = false },
 })
 
--- INSERT MODE MAPPINGS
+-- MODE-Specific Mappings
+--------------------------
+-- Description: Mappings tied to a specific MODE in Vim 
+-- ( i.e. normal, visual, insert, etc. )
+-- 
+-- The following sections each represent a MODE used in vim. The mappings under
+-- each section will only function in that MODE. Therefore, it can also be
+-- assumed that any mappings outside of these sections will work across all
+-- vim MODES unless otherwise stated somewhere next to that particular mapping.
+--------------------------
+
+-- INSERT Mode
 wk.add({
     mode = { "i" },
     { "<a-b>", "<C-o>b", desc = "Move to previous word", nowait = true, remap = false },
@@ -186,8 +181,7 @@ wk.add({
     { "<a-w>", "<C-o>w", desc = "Move to next word", nowait = true, remap = false },
 })
 
-
--- VISUAL MODE MAPPINGS
+-- VISUAL Mode
 wk.add({
     mode = { "v" },
     { "<", "<gv", desc = "[Indent] Indent left", nowait = true, remap = false },
@@ -211,14 +205,12 @@ wk.add({
     { "w", "<cmd>lua require('spider').motion('w')<cr>", desc = "[MOTION] Spider-w motion", nowait = true, remap = false },
 })
 
--- SELECT MODE MAPPINGS
---
+-- SELECT Mode
 -- {
 -- None
 -- },
 --
--- EXECUTION MODE MAPPINGS
-
+-- EXECUTION Mode
 wk.add({
     mode = { "x" },
     { "<leader>r", group = "[Code refactor]", nowait = true, remap = false },
@@ -227,7 +219,7 @@ wk.add({
     { "<leader>rx", "<cmd>:Refactor extract <cr>", desc = "[REFACTOR] Extract function", nowait = true, remap = false },
 })
 
--- TERMINAL MODE MAPPINGS
+-- TERMINAL Mode
 wk.add({
     mode = { "t" },
     { "<c-h>", "<cmd>wincmd h<cr>,", desc = "[TERMINAL] Move left", nowait = true, remap = false },

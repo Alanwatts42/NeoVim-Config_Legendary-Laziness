@@ -42,7 +42,11 @@ local plugins = {
 	require("plugins.configs.treesitter"),
 	
     ---- Utilities
-
+    {
+        "motosir/skel-nvim",
+        config = function()
+        end
+    },
     "tmux-plugins/vim-tmux-focus-events", --fix for tmux focus events option
     require("plugins.configs.telescope"),
 	"terryma/vim-expand-region", -- Incremental selection expansion
@@ -65,6 +69,27 @@ local plugins = {
 	require("plugins.configs.bigfile"),
 	require("plugins.configs.splitjoin"), -- Quick split or join of lists
 	---- Code
+    -- 
+    -- -- Markdown Preview Plugin(s)
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    },
+    {
+        "toppair/peek.nvim",
+        event = { "VeryLazy" },
+        build = "deno task --quiet build:fast",
+        config = function()
+            require("peek").setup()
+            vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+            vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+        end,
+    },
 	require("plugins.configs.lspsaga"),
 	require("plugins.configs.refactor"),
 	require("plugins.configs.lens"),
@@ -88,7 +113,6 @@ local plugins = {
             -- create hydras in here
         end
     },
-    
     {
         "kiyoon/jupynium.nvim",
         --build = "pip3 install --user .",
