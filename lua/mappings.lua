@@ -15,17 +15,23 @@ vim.g.maplocalleader = ","
 -- Keymap Spec Template:
 -- { "", "", desc = "", nowait = false, remap = false },
 -- ---------------------------------------
+-- MODE-Specific Mappings
+--------------------------
+-- Description: Mappings tied to a specific MODE in Vim 
+-- ( i.e. normal, visual, insert, etc. )
+--------------------------
+-- The vast majority of mappings are specific to Normal mode, being the most
+-- common and easiest to work with. 
+--------------------------
 
--- NORMAL MODE MAPPINGS
+-- NORMAL Mode
 wk.add({
-
+   --
    -- Editing
-    --
     { "<c-a>", "ggVG", desc = "[SELECT] Select all", nowait = false, remap = false },
     { "D", '"_D', desc = "Do not copy when deleting", nowait = false, remap = false },
     --
     -- Motion
-    --
     { "H", "^", desc = "[MOTION] Move to first character of line", nowait = false, remap = false },
     { "L", "$", desc = "[MOTION] Move to last character of line", nowait = false, remap = false },
     -- Buffer
@@ -33,7 +39,6 @@ wk.add({
     { "Z", "<cmd>wall<cr>", desc = "[BUFFER] Save all", nowait = false, remap = false },
 	--
     -- Window navigation
-    --
 	---- Without bufferline
     { "<a-left>", "<cmd>bn<cr>", desc = "[BUFFER] Go previous buffer", nowait = false, remap = false },
     { "<a-right>", "<cmd>bp<cr>", desc = "[BUFFER] Go next buffer", nowait = false, remap = false },
@@ -48,7 +53,6 @@ wk.add({
     { "<a-w>", "<cmd>%bd!|e#|bd#<cr>", desc = "[BUFFER] Close other buffers", nowait = false, remap = false },
     --
     -- Code/Text Folding
-    --
     { "||", "zM", desc = "[FOLDS] Collapse all folds", nowait = false, remap = false },
     { "--", "zR", desc = "[FOLDS] Expand all folds", nowait = false, remap = false },
     { "<a-s-up>", "zm", desc = "[FOLDS] Decrease fold level", nowait = false, remap = false },
@@ -158,18 +162,15 @@ wk.add({
         -- Macros and registers
 	-- ["t"] = { '"_', "Set black hole registry" },
 	{"qj", "@q", desc = "Execute macro saved in 'q' register", nowait = false, remap = false },
+    --
+    -- Plugin-specific Mappings
+    --
+    -- Markdown-Peek
+    { "<leader>vmp", "<cmd>PeekOpen<cr>", desc = "Markdown Peek - Open markdown preview window", nowait = true, remap = false },
+    { "<leader>vmpx", "<cmd>PeekClose<cr>", desc = "Markdown Peek - Close markdown preview window", nowait = false, remap = false },
+    -- 
 })
 
--- MODE-Specific Mappings
---------------------------
--- Description: Mappings tied to a specific MODE in Vim 
--- ( i.e. normal, visual, insert, etc. )
--- 
--- The following sections each represent a MODE used in vim. The mappings under
--- each section will only function in that MODE. Therefore, it can also be
--- assumed that any mappings outside of these sections will work across all
--- vim MODES unless otherwise stated somewhere next to that particular mapping.
---------------------------
 
 -- INSERT Mode
 wk.add({

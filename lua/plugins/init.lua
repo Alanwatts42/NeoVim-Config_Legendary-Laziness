@@ -42,11 +42,7 @@ local plugins = {
 	require("plugins.configs.treesitter"),
 	
     ---- Utilities
-    {
-        "motosir/skel-nvim",
-        config = function()
-        end
-    },
+    require("plugins.configs.skel-nvim"),
     "tmux-plugins/vim-tmux-focus-events", --fix for tmux focus events option
     require("plugins.configs.telescope"),
 	"terryma/vim-expand-region", -- Incremental selection expansion
@@ -71,25 +67,8 @@ local plugins = {
 	---- Code
     -- 
     -- -- Markdown Preview Plugin(s)
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && yarn install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
-    {
-        "toppair/peek.nvim",
-        event = { "VeryLazy" },
-        build = "deno task --quiet build:fast",
-        config = function()
-            require("peek").setup()
-            vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-            vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-        end,
-    },
+    -- require("plugins.configs.markdown-preview"),
+    require("plugins.configs.peek"), -- Markdown preview tool (show browser view)
 	require("plugins.configs.lspsaga"),
 	require("plugins.configs.refactor"),
 	require("plugins.configs.lens"),
@@ -98,56 +77,21 @@ local plugins = {
     require("plugins.configs.code-runner"),
     require("plugins.configs.spread"),
     require("plugins.configs.lazydev"),
-    "jacquesg/p5-Neovim-Ext", -- Perl bindings for NeoVim
+    require("plugins.configs.p5-Neovim-Ext"),
    -- require("plugins.configs.CopilotChat"),
-    require("plugins.configs.mini"), -- added config for mini.surround
-    -- Note: Default keybind is highlight word in v mode sa<"> = "word"
-    -- same keybind surrounds word with any symbol: i.e. (), {}, []
-    { 'echasnovski/mini.icons', version = false },
-    { 'echasnovski/mini.nvim', version = '*' }, -- Tools for surround characters i.e. "'" etc.
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Indent & spacing guide
-    -- Hydra - allows custom hints for a group of keybindings based on common prefix i.e. the <C-w> prefix for window actions. Each new prefix capable of having many heads, hence the name.
-    {
-        "nvimtools/hydra.nvim",
-        config = function()
-            -- create hydras in here
-        end
-    },
-    {
-        "kiyoon/jupynium.nvim",
-        --build = "pip3 install --user .",
-        build = "conda run --no-capture-output -n jupynium pip install .",
-        enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
-    },
+    require("plugins.configs.mini-surround"), -- added config for mini.surround 
+    require("plugins.configs.mini-icons"), -- added config for mini.surround 
+    --NOTE: default mapping: highlight text in visual mode
+    -- <sa + grouping symbol> (i.e. "", (), {}, []), etc.)
+    -- will wrap text in desired grouping symbol
 
-    {
-        "vhyrro/luarocks.nvim",
-        priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
-        config = true,
-    },
-
-
-    "rcarriga/nvim-notify",   -- optional
-    "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
-
-    {
-    "GCBallesteros/jupytext.nvim",
-        config = true,
-        -- Depending on your nvim distro or config you may need to make the loading not lazy
-        lazy=false,
-    },
-
-    {
-        "nvim-neotest/nvim-nio"
-    },
-    -- mini.nvim addon
-    {
-        'echasnovski/mini.nvim', version = '*'
-    },
-
-
-    "rcarriga/nvim-notify",   -- optional
-    "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
+    require("plugins.configs.indent-blankline"),
+    require("plugins.configs.jupynium"),
+    require("plugins.configs.luarocks"),
+    require("plugins.configs.jupytext"),
+    require("plugins.configs.nvim-nio"),
+    require("plugins.configs.nvim-notify"),
+    require("plugins.configs.dressing"),
 
     ---- LSP/DAP
 
