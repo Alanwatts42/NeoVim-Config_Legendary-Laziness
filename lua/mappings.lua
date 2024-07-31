@@ -164,7 +164,7 @@ wk.add({
     { "<leader>vu", "<cmd>UndotreeToggle<cr>", desc = "[UNDOTREE]Toggle undotree", nowait = false, remap = false },
         -- Macros and registers
 	-- ["t"] = { '"_', "Set black hole registry" },
-	-- ["qj"] = { "@q", "Execute macro saved in 'q' register" },
+	{"qj", "@q", desc = "Execute macro saved in 'q' register", nowait = false, remap = false },
 })
 
 -- INSERT MODE MAPPINGS
