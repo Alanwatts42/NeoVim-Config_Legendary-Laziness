@@ -9,7 +9,10 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
 -- ---------------------------------------
--- New Spec Template:  
+-- Keymap Spec:  
+-- { "key combo i.e. '<c-p>' (ctrl+p)", "full vim command you are mapping i.e. '<cmd>qall!<cr>'", desc = "description of command", nowait = false, remap = false },
+-- ---------------------------------------
+-- Keymap Spec Template:
 -- { "", "", desc = "", nowait = false, remap = false },
 -- ---------------------------------------
 
@@ -44,7 +47,7 @@ wk.add({
     { "<a-q>", "<cmd>Bdelete!<cr>", desc = "[BUFFER] Close current buffer", nowait = false, remap = false },
     { "<a-w>", "<cmd>%bd!|e#|bd#<cr>", desc = "[BUFFER] Close other buffers", nowait = false, remap = false },
     --
-    -- Folds
+    -- Code/Text Folding
     --
     { "||", "zM", desc = "[FOLDS] Collapse all folds", nowait = false, remap = false },
     { "--", "zR", desc = "[FOLDS] Expand all folds", nowait = false, remap = false },
@@ -56,9 +59,9 @@ wk.add({
     -- Clear search highlights
     { ";;", "<cmd>noh<cr>", desc = "Clean search highlights", nowait = false, remap = false },
     -- 
-    -- 
     -- Code Navigation - "<leader>c"
     --
+    { "<leader>P", "<cmd>!python3 %<cr>", desc = "Run the current file using python3", nowait = false, remap = false },
     { "<leader>c", group = "[Code navigation]", nowait = false, remap = false },
     { "<leader>cc", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "[LSP] Show incoming calls", nowait = false, remap = false },
     { "<leader>cd", "<cmd>Glance definitions<cr>", desc = "[LSP] Go to definition", nowait = false, remap = false },
