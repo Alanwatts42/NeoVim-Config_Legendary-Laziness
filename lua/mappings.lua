@@ -58,10 +58,16 @@ wk.add({
 
     -- Clear search highlights
     { ";;", "<cmd>noh<cr>", desc = "Clean search highlights", nowait = false, remap = false },
-    -- 
+    --
+    -- Python
+    --
+    { "<leader>p", group = "[Python]", nowait = false, remap = false },
+    { "<leader>pf", "<cmd>!python3 %<cr>", desc = "Run the current file using python3", nowait = false, remap = false },
+    { "<leader>P", "<cmd>!python3 %<cr>", desc = "Run the current file using python3", nowait = false, remap = false },
+    { "<leader>pm", "<cmd>!python3 main.py<cr>", desc = "Runs main.py file in the same directory as the file being worked on (handy if you must test your project by running a main.py file which runs runs the whole project, but which you usually won't actually need to edit, hence you can run main.py without leaving the file you are editing, assumes main.py is in the same directory as the file you're working on, which in my case happens to be the case quite often)", nowait = false, remap = false },
+
     -- Code Navigation - "<leader>c"
     --
-    { "<leader>P", "<cmd>!python3 %<cr>", desc = "Run the current file using python3", nowait = false, remap = false },
     { "<leader>c", group = "[Code navigation]", nowait = false, remap = false },
     { "<leader>cc", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "[LSP] Show incoming calls", nowait = false, remap = false },
     { "<leader>cd", "<cmd>Glance definitions<cr>", desc = "[LSP] Go to definition", nowait = false, remap = false },
