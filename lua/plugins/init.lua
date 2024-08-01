@@ -20,7 +20,7 @@ end
 local theme = require("theme")
 
 local plugins = {
-	
+
     ---- UI
 	theme.get_active_theme(),
 	"mhinz/vim-startify", -- Start page
