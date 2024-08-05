@@ -80,7 +80,7 @@ local plugins = {
     require("plugins.configs.p5-Neovim-Ext"),
    -- require("plugins.configs.CopilotChat"),
     require("plugins.configs.mini-surround"), -- added config for mini.surround 
-    require("plugins.configs.mini-icons"), -- added config for mini.surround 
+    -- require("plugins.configs.mini-icons"),
     --NOTE: default mapping: highlight text in visual mode
     -- <sa + grouping symbol> (i.e. "", (), {}, []), etc.)
     -- will wrap text in desired grouping symbol
