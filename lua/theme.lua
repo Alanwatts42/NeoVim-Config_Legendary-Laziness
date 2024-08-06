@@ -1,7 +1,7 @@
 local M = {}
 
 M.colors = {
-    bg = "#151515",
+    bg = "#1c1c1c",
     fg = "#ECEFF4",
     red = "#fc2336",
     orange = "#d08770",
@@ -35,6 +35,26 @@ M.colors = {
 
 local themes = {
 
+
+    noclownfiesta = {
+        "aktersnurra/no-clown-fiesta.nvim",
+        priority = 1000,
+        config = function()
+        require("no-clown-fiesta").setup{
+            transparent = true, -- Enable this to disable the bg color
+            styles = {
+                -- You can set any of the style values specified for `:h nvim_set_hl` comments = {},
+                functions = {},
+                keywords = {},
+                lsp = { underline = true },
+                match_paren = {},
+                type = { bold = true },
+                variables = {},
+            }
+        }
+        end
+        },
+
     gruvbox = {
          "ellisonleao/gruvbox.nvim",
         priority = 1000 ,
@@ -58,8 +78,7 @@ local themes = {
                 invert_intend_guides = false,
                 inverse = false, -- invert background for search, diffs, statuslines and errors
                 contrast = "hard", -- can be "hard", "soft" or empty string
-                overrides = {},
-                dim_inactive = false,
+                overrides = {}, dim_inactive = false,
                 transparent_mode = true,
             })
             vim.cmd("colorscheme gruvbox")
@@ -80,7 +99,15 @@ local themes = {
         config = function()
             require('atlantic-dark').setup{
                 disable_background = true,
+                    colors = {
+                        bg = "#1C1C1C",
+                        fg = "#E5E5E5",
+                    },
             }
+            
+        end,
+
+        init = function()
             vim.cmd("colorscheme atlantic-dark")
         end
     },
@@ -235,18 +262,15 @@ local themes = {
         end
     },
 
-    abstractcs = {
-        'Abstract-IDE/Abstract-cs',
-        lazy = false,
-        priority = 1000,
-        -- config = function()
-        --     require('abstractcs').setup {}
-        -- end,
-
-        -- init function()
-        --     vim.cmd 'colorscheme absctract-cs'
-        -- end
-    },
+    -- abstractcs = {
+    --     'Abstract-IDE/Abstract-cs',
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require('abstractcs').setup {}
+    --     end,
+    --     vim.cmd 'colorscheme absctract-cs'
+    -- },
 
     poimandres = {
         'olivercederborg/poimandres.nvim',
@@ -255,7 +279,7 @@ local themes = {
         config = function()
             require('poimandres').setup {
                 disable_background = true,
-                bold_vert_spit = true,
+                bold_vert_spit = false,
             }
         end,
 
@@ -301,9 +325,12 @@ local themes = {
                     colors = {
                         -- For a list of colors see `lua/cyberdream/colours.lua`
                         -- Example:
-                        bg = "#000000",
-                        green = "#00ff00",
-                        magenta = "#ff00ff",
+                        bg = "#1C1C1C",
+                        green = "#00FF00",
+                        magenta = "#FF00FF",
+                        yellow = "#FFC400",
+                        blue = "#1591ee",
+                        
                     },
             },
             })
