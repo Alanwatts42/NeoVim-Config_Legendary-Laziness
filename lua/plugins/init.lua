@@ -64,10 +64,11 @@ local plugins = {
 	require("plugins.configs.harpoon"),
 	require("plugins.configs.bigfile"),
 	require("plugins.configs.splitjoin"), -- Quick split or join of lists
-	---- Code
-    -- 
-    -- -- Markdown Preview Plugin(s)
-    -- require("plugins.configs.markdown-preview"),
+	--
+    ---- Coding/Programming
+    ---
+    -- require("plugins.configs.nvim-navic"), -- This is required for the "breadcrumbs plugin"
+    -- require("plugins.configs.breadcrumbs"),  -- Provides context for your code using nvim-navic
     require("plugins.configs.peek"), -- Markdown preview tool (show browser view)
 	require("plugins.configs.lspsaga"),
 	require("plugins.configs.refactor"),
