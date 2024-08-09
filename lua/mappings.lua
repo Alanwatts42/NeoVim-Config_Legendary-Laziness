@@ -90,4 +90,4 @@ wk.add({
     { "<leader>db", "<cmd>DapToggleBreakpoint<cr>", desc = "[DAP] Toggle breakpoint", nowait = false, remap = false },
     { "<leader>dc", "<cmd>DapContinue<cr>", desc = "[DAP] Continue", nowait = false, remap = false },
 
-
+})
