@@ -32,7 +32,135 @@ M.colors = {
     grey18 = "#0d0e11",
     grey19 = "#020203"
 }
+
 local themes = {
+
+    obscure = {
+        "killitar/obscure.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {}
+    },
+
+    vscode = {
+
+        "Mofiqul/vscode.nvim",
+        -- Lua:
+        -- For dark theme (neovim's default)
+        config = function()
+            vim.o.background = 'dark'
+
+            local c = require('vscode.colors').get_colors()
+            require('vscode').setup({
+                style = 'dark',
+
+                -- Enable transparent background
+                transparent = false,
+
+                -- Enable italic comment
+                italic_comments = false,
+
+                -- Underline `@markup.link.*` variants underline_links = true,
+
+                -- Disable nvim-tree background color
+                disable_nvimtree_bg = true,
+
+                -- Override colors (see ./lua/vscode/colors.lua)
+                -- color_overrides = {
+                --     vscLineNumber = '#FFFFFF',
+                -- },
+
+                -- Override highlight groups (see ./lua/vscode/theme.lua)
+                -- group_overrides = {
+                --     -- this supports the same val table as vim.api.nvim_set_hl
+                --     -- use colors from this colorscheme by requiring vscode.colors!
+                --     -- Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
+                --
+                -- }
+            })
+            -- require('vscode').load()
+
+            -- load the theme without affecting devicon colors.
+            vim.cmd.colorscheme "vscode"
+
+        end
+    },
+
+    minimal = {
+        "yazeed1s/minimal.nvim",
+        priority = 1000,
+        config = function()
+
+            vim.g.minimal_italic_functions = true
+            vim.g.minimal_italic_comments = false
+            vim.cmd [[colorscheme minimal-base16]]
+        end
+    
+    },
+
+    codeschool = {
+        "adisen99/codeschool.nvim",
+
+        dependencies = { "rktjmp/lush.nvim" },
+        priority = 1000,
+        config = function()
+            vim.o.background = "dark"
+            vim.g.codeschool_contrast_dark = "hard"
+            vim.g.codeschool_transparent_bg = 1
+            -- Load and setup function to choose plugin and language highlights
+            require('lush')(require('codeschool').setup({
+            plugins = {
+                "buftabline",
+                "coc",
+                "cmp", -- nvim-cmp
+                "fzf",
+                "gitgutter",
+                "gitsigns",
+                "lsp",
+                "lspsaga",
+                "nerdtree",
+                "netrw",
+                "nvimtree",
+                "neogit",
+                "packer",
+                "signify",
+                "startify",
+                "syntastic",
+                "telescope",
+                "treesitter"
+            },
+            langs = {
+                "c",
+                "clojure",
+                "coffeescript",
+                "csharp",
+                "css",
+                "elixir",
+                "golang",
+                "haskell",
+                "html",
+                "java",
+                "js",
+                "json",
+                "jsx",
+                "lua",
+                "markdown",
+                "moonscript",
+                "objc",
+                "ocaml",
+                "purescript",
+                "python",
+                "ruby",
+                "rust",
+                "scala",
+                "typescript",
+                "viml",
+                "xml"
+            }
+            }))
+        end
+        },
+
 
     hybrid = {
         "HoNamDuong/hybrid.nvim",
@@ -56,8 +184,6 @@ local themes = {
             transparent = false,
             overrides = function(highlights, colors) end,
         })
-
-
             vim.cmd("colorscheme hybrid")
         end
     },
@@ -65,17 +191,17 @@ local themes = {
     arctic = {
         "rockyzhang24/arctic.nvim",
         dependencies = { "rktjmp/lush.nvim" },
-        name = "arctic",
-        branch = "main",
         priority = 1000,
         config = function()
-            vim.cmd("colorscheme arctic")
+            vim.cmd("colorscheme codeschool")
         end
+
     },
 
     material = {
         "marko-cerovac/material.nvim",
-        config = function() require('material').setup({
+        config = function() 
+            require('material').setup({
             contrast = {
                 terminal = false, -- Enable contrast for the built-in terminal
                 sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
@@ -155,14 +281,14 @@ local themes = {
         end
     },
 
-    apprentice = {
-        "romainl/Apprentice",
-        priority = 1000,
-        config = function()
-        require("romainl/Apprentice").setup{}
-            vim.cmd("colorscheme apprentice")
-        end
-    },
+    -- apprentice = {
+    --     "romainl/Apprentice",
+    --     priority = 1000,
+    --     config = function()
+    --     require("romainl/Apprentice").setup{}
+    --         vim.cmd("colorscheme apprentice")
+    --     end
+    -- },
 
     noclownfiesta = {
         "aktersnurra/no-clown-fiesta.nvim",
@@ -186,8 +312,8 @@ local themes = {
     gruvbox = {
          "ellisonleao/gruvbox.nvim",
         priority = 1000 ,
-        config = function()
-        require("gruvbox").setup({
+        config = function() 
+            require("gruvbox").setup({
                 terminal_colors = true, -- add neovim terminal colors
                 undercurl = true,
                 underline = true,

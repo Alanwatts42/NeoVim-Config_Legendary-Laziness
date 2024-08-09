@@ -70,4 +70,4 @@ if _notify then
 end
 
 -- UI theme
-require("theme").set_active_theme("hybrid")
+require("theme").set_active_theme("vscode")

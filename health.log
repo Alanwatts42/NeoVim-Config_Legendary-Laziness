@@ -13,7 +13,6 @@ conform.nvim report ~
 
 ==============================================================================
 dap: require("dap.health").check()
-
 dap: Adapters ~
 
 dap: Sessions ~
