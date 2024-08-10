@@ -1,0 +1,42 @@
+# Title
+
+<br>
+
+
+## Section 1
+
+
+### My checklist
+- [ ] Conquer markdown
+- [ ] Procrastinate for the rest of the day
+
+### My nested checklist
+- [x] Task 1
+- [ ] Task 2
+  - [x] Subtask A
+  - [ ] Subtask A
+- [x] Task 3
+
+
+<br>
+
+## Section 2
+
+
+### Table
+
+
+Thing 1 | Thing 2 | Thing 3
+--- | --- | ----
+Baa | Baa | Boo
+Foo | Foo | Bar
+Blee | Blah | Bloo
+
+
+<br>
+
+## Section 3
+
+[github]
+
+[github]:(https://github.com)
