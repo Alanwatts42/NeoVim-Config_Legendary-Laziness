@@ -1,4 +1,4 @@
-# Nvim Config: Lazier than Thou
+# Neovim Configuration
 
 <br>
 
